@@ -1,7 +1,7 @@
 ---
 name: globallink-voice
 version: 1.2.0
-Author: Angela Sauret (TransPerfect TechOps Design)
+Author: TransPerfect TechOps Design
 Last update: 2026-05-18
 Description: Defines GlobalLink's voice personality, valid tone ranges, copy patterns, and translatability rules for all in-product content. Use when writing, reviewing, or evaluating any UX copy, microcopy, error messages, notifications, onboarding text, or any written content that appears inside a GlobalLink product. Also use when adapting tone for a specific product, user type, or industry vertical.
 Trigger: Invoked when writing or auditing copy for any GlobalLink product, or when asking "how should this sound in GlobalLink?"
