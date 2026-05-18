@@ -11,7 +11,7 @@ description: >
 ---
 
 **Version:** 1.0.0 | **Author:** TechOps Experience Design
-**Last Updated:** 2026-05-18 | **Workspace:** TransPerfect User Research (Condens)
+**Last Updated:** 2026-05-18
 
 # Research Readout Skill
 
