@@ -30,8 +30,8 @@ Load this skill when you need to:
 Before writing or reviewing copy, establish:
 
 1. **Product and feature** — Which GlobalLink product? Which screen or flow?
-2. **Industry vertical** — Life Sciences, Legal, Banking, Retail, Media, Tech? (See Part 3)
-3. **Primary user** — Project manager, linguist, IT admin, content team? (See Part 3)
+2. **Industry vertical** — Life Sciences, Legal, Banking, Retail, Media, Tech?
+3. **Primary user** — Project manager, linguist, IT admin, content team, event manager, event attendee, copywriter, B2B or B2C?
 4. **Content type** — Error, empty state, CTA, onboarding, notification, confirmation? (See Part 4)
 5. **User's emotional state** — Are they completing a routine task, recovering from an error, seeing a screen for the first time, about to do something irreversible?
 6. **Constraints** — Character limits, truncation risk, screen size, platform?
@@ -57,7 +57,7 @@ Every word in a GlobalLink product should pass these five tests:
 
 Voice is GlobalLink's personality. It is **fixed** — it does not change by product, audience, or context. It is what makes GlobalLink recognisable across the entire suite.
 
-GlobalLink is a sub-brand of TransPerfect. The parent brand is "friendly-professional" — casual, conversational, and confident. GlobalLink inherits that foundation but operates in a higher-stakes, more enterprise register. Our users manage global content, legal documents, regulated submissions, and mission-critical workflows. The voice reflects that: trustworthy and precise, never stuffy; practical and direct, never cold.
+GlobalLink is a sub-brand of TransPerfect. The parent brand is "friendly-professional" — casual, conversational, and confident. GlobalLink inherits that foundation but operates in a higher-stakes. Our users manage global content, legal documents, regulated submissions, and mission-critical workflows. The voice reflects that: trustworthy and precise, never stuffy; practical and direct, never cold. But also some of our products are B2C. We want to be "friendly-professional" but also engaging and exciting for our users (event attendees, users that want to share a file with friends,...). Avoid a B2B voice that sounds old and boring, B2B can also be interesting.
 
 ### Voice attributes
 
@@ -143,7 +143,7 @@ GlobalLink is strongly respectful by default. Our products operate across cultur
 
 ## Part 3 — Tone adaptation by industry and user
 
-The spectrum defines what is possible. Where a specific product sits within that range depends on industry context, user profile, and product purpose. These usually overlap — a product serving legal users in a regulated context will sit near the formal ceiling across all four dimensions.
+The spectrum defines what is possible. Where a specific product sits within that range depends on industry context, user profile, and product purpose. These usually overlap — a product serving legal users in a regulated context will sit near the formal ceiling across all four dimensions. A sharing-files platform for B2C users will be the contrary.
 
 ### By industry
 
@@ -164,6 +164,7 @@ The spectrum defines what is possible. Where a specific product sits within that
 - **IT / system administrators** — lean concise and direct; precision over warmth
 - **Enterprise buyers / stakeholders** — lean formal; copy should convey quality, reliability, and control
 - **Content / marketing teams** — balanced to slightly casual; completion moments can feel more celebratory
+- **Event attendees** -
 
 > See [EXAMPLES.md § Industry copy examples](./EXAMPLES.md#industry-copy-examples) for side-by-side copy pairs showing the same message written for different industry contexts.
 
@@ -229,7 +230,7 @@ These structures define what to include in each content type. Tone is set by Par
 
 ## Part 5 — Translatability rules
 
-GlobalLink products are localised. Copy written for GlobalLink will be translated — often by the same linguists who use the product. Violations here create rework and undermine the quality signal GlobalLink sends to its own customers.
+GlobalLink products are localised. Copy written for GlobalLink will be translated, and some times machine translated. Violations here create rework and undermine the quality signal GlobalLink sends to its own customers.
 
 ### Structural rules
 
@@ -261,7 +262,7 @@ GlobalLink products are localised. Copy written for GlobalLink will be translate
 
 ## Part 6 — Relationship to the TransPerfect parent brand
 
-GlobalLink's voice is derived from, but more restrained than, the TransPerfect master brand. The parent brand's "friendly-professional" register is right for marketing and external communications. GlobalLink products are enterprise software — the context is operational, not promotional.
+GlobalLink's voice is derived from, but more restrained than, the TransPerfect master brand. The parent brand's "friendly-professional" register is right for marketing and external communications. GlobalLink products are enterprise software — the context is operational, not promotional. Globallink also have marketing and external communications, take this into account when creating the content to ensure which type of tone is needed.
 
 **Always inherit from the TPT brand voice:**
 - Avoid superlatives ("the most accurate," "the best") unless supported by a verified claim
@@ -272,9 +273,8 @@ GlobalLink's voice is derived from, but more restrained than, the TransPerfect m
 
 **Where GlobalLink is more restrained than TPT marketing:**
 - Exclamation marks only in genuine celebration moments — never in errors, warnings, or instructional copy
-- No emoji in product UI copy
-- Default register is more formal than the parent brand's social and marketing voice
-
+- No emoji in product UI copy (just apply to specific products and needs to be indicated)
+- Default register is more formal than the parent brand's social and marketing voice, but still similar
 ---
 
 ## Output format
