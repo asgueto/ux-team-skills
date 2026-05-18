@@ -1,17 +1,10 @@
 ---
 name: research-plan
-description: >
-  Use this skill whenever anyone on the team touches a research study — from the first conversation
-  about scoping to reviewing a draft plan to choosing a method. Triggers include: starting a new study,
-  writing or refining research goals, choosing a method, defining participants, aligning with a PM or
-  stakeholder before fieldwork, or asking "what should go in the plan?" Activate also when someone says
-  "I'm planning a study on X", "can you help me scope this?", "I'm not sure what method to use",
-  "my goals feel too broad", or shares a draft plan for review — even if they don't use the words
-  "research plan".
+description: Use this skill whenever anyone on the team touches a research study — from the first conversation about scoping to reviewing a draft plan to choosing a method. Triggers include: starting a new study,writing or refining research goals, choosing a method, defining participants, aligning with a PM or stakeholder before fieldwork, or asking "what should go in the plan?" Activate also when someone says "I'm planning a study on X", "can you help me scope this?", "I'm not sure what method to use", "my goals feel too broad", or shares a draft plan for review — even if they don't use the words "research plan".
 ---
 
 **Version:** 1.1.0 | **Author:** TechOps Experience Design
-**Last Updated:** 2026-05-18 | **Workspace:** TransPerfect User Research (Condens)
+**Last Updated:** 2026-05-18
 
 # Research Plan Skill
 
