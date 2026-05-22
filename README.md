@@ -22,7 +22,10 @@ ux-team-skills/
 │   ├── research-plan/
 │   └── research-readout/
 ├── design/
+│   ├── prompt-builder/
+│   └── spec-ideation/
 ├── content/
+│   └── globallink-voice/
 └── design-system/
 ```
 
@@ -38,10 +41,17 @@ ux-team-skills/
 | `research/research-readout` | Guides writing a research readout — executive summary, findings with impact, conclusions, proposals. Focused on synthesis for PM and stakeholder audiences. |
 
 ### Design
-*Skills coming soon.*
+
+| Skill | What it does |
+|---|---|
+| `design/prompt-builder` | Step-by-step guide for building high-quality AI prompts for Figma Make, Cursor, Claude, or any tool. Walks through Prompt Anatomy (Object, Style, Context, Constraints) and the FEEL framework, with access to a shared team prompt library. |
+| `design/spec-ideation` | Structured framework for ideation with AI — expansion, contraction, and documentation phases. Use when developing ideas, making decisions, or writing specs for design, development, research, or any domain that needs structured thinking. |
 
 ### Content
-*Skills coming soon.*
+
+| Skill | What it does |
+|---|---|
+| `content/globallink-voice` | Defines GlobalLink voice personality, tone ranges, copy patterns, and translatability rules for in-product content. Use when writing, reviewing, or auditing UX copy, microcopy, errors, notifications, onboarding, or any text inside a GlobalLink product. |
 
 ### Design System
 *Skills coming soon.*
@@ -113,4 +123,4 @@ As the team's conventions change, skills should be updated. This repo is a livin
 ## Maintained by
 
 TechOps Experience Design team  
-Questions or suggestions → open an issue or speak to the Design Lead
+Questions or suggestions → speak to the Design Lead
