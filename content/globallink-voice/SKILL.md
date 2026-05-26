@@ -1,8 +1,7 @@
 ---
 name: globallink-voice
-Description: Defines GlobalLink's voice personality, valid tone ranges, copy patterns, and translatability rules for all in-product content. Use when writing, reviewing, or evaluating any UX copy, microcopy, error messages, notifications, onboarding text, or any written content that appears inside a GlobalLink product. Also use when adapting tone for a specific product, user type, or industry vertical.
-Trigger: Invoked when writing or auditing copy for any GlobalLink product, or when asking "how should this sound in GlobalLink?"
-See also: EXAMPLES.md — worked copy examples, Do/Don't reference, and industry-specific copy pairs
+description: >
+  Defines GlobalLink's voice personality, valid tone ranges, copy patterns, and translatability rules for all in-product content. Use when writing, reviewing, or evaluating any UX copy, microcopy, error messages, notifications, onboarding text, or any written content that appears inside a GlobalLink product. Also use when adapting tone for a specific product, user type, or industry vertical. If the product has a product-specific voice guide, this skill will load it as a product overlay and apply both layers together — always trigger this skill first when writing product copy. Trigger when writing or auditing copy for any GlobalLink product, or when asked "how should this sound in GlobalLink?" For worked copy examples, Do/Don't pairs, and industry-specific illustrations, also load references/EXAMPLES.md.
 ---
 
 **Version:** 1.2.0 | **Author:** TechOps Design Team
@@ -10,7 +9,7 @@ See also: EXAMPLES.md — worked copy examples, Do/Don't reference, and industry
 
 # globallink-voice
 
-> For worked copy examples, Do/Don't pairs, and industry-specific illustrations, see [EXAMPLES.md](./EXAMPLES.md).
+> For worked copy examples, Do/Don't pairs, and industry-specific illustrations, see [references/EXAMPLES.md](./references/EXAMPLES.md).
 
 ---
 
@@ -25,17 +24,43 @@ Load this skill when you need to:
 
 ---
 
+## Product layer — apply your product voice guide
+
+GlobalLink voice rules are the foundation. If the product you're writing for has a product-specific voice guide, that guide is the overlay — it narrows and specifies the base rules for that product's users, tone positions, and terminology.
+
+**At the start of every product copy session:**
+
+1. Ask which product this is for (e.g. "GlobalLink Events", "GlobalLink Bookings").
+2. Look for a product voice guide in the workspace. It will be named `[product-name]-voice-guide.md` (e.g. `globallink-events-voice-guide.md`) and typically lives in the product's own repository — often in a `docs/`, `content/`, or `design/` folder.
+3. If a guide is found, read it before writing. If it's not in the workspace, ask: "Do you have a product voice guide? Share the path or paste it in and I'll apply it."
+4. If no guide exists yet, proceed with GlobalLink base rules only and note that the product may want to create one using the `product-voice-guide` skill.
+
+**When a product guide is loaded, apply it as follows:**
+
+| What the product guide defines | How to apply it |
+|---|---|
+| Tone positions (e.g. 7/10 Formal for Register A) | Use the product's calibration — it overrides the GlobalLink defaults |
+| Registers (user types and their profiles) | Write to the relevant register's north star and tone markers |
+| Terminology (approved terms and never-use terms) | Follow exactly — product terminology is authoritative |
+| Key patterns (product-specific copy patterns) | Apply in addition to GlobalLink's scenario patterns |
+| Anything not covered by the product guide | Fall back to GlobalLink base rules |
+
+The product guide does not replace these GlobalLink rules — it adds precision to them. If a product guide says nothing about destructive actions, the GlobalLink destructive action pattern still applies.
+
+---
+
 ## Before you write — what to gather
 
 Before writing or reviewing copy, establish:
 
 1. **Product and feature** — Which GlobalLink product? Which screen or flow?
-2. **Industry vertical** — Life Sciences, Legal, Banking, Retail, Media, Tech?
-3. **Primary user** — Project manager, linguist, IT admin, content team, event manager, event attendee, copywriter, B2B or B2C?
-4. **Content type** — Error, empty state, CTA, onboarding, notification, confirmation? (See Part 4)
-5. **User's emotional state** — Are they completing a routine task, recovering from an error, seeing a screen for the first time, about to do something irreversible?
-6. **Constraints** — Character limits, truncation risk, screen size, platform?
-7. **Translation scope** — Will this copy be translated? Into how many languages? (See Part 5)
+2. **Product voice guide** — Has one been loaded? (See product layer section above.)
+3. **Industry vertical** — Life Sciences, Legal, Banking, Retail, Media, Tech?
+4. **Primary user** — Which register does this copy target? (Check the product guide; if none exists, use the industry and user role to calibrate.)
+5. **Content type** — Error, empty state, CTA, onboarding, notification, confirmation? (See Part 4)
+6. **User's emotional state** — Are they completing a routine task, recovering from an error, seeing a screen for the first time, about to do something irreversible?
+7. **Constraints** — Character limits, truncation risk, screen size, platform?
+8. **Translation scope** — Will this copy be translated? Into how many languages? (See Part 5)
 
 If you are missing industry, user type, or content type, ask before writing. Tone calibration depends on all three.
 
@@ -85,7 +110,7 @@ GlobalLink is a sub-brand of TransPerfect. The parent brand is "friendly-profess
 - **We are:** current, clean, and aware that users' time is valuable. We write for how people actually read interfaces — scanning, not reading word by word.
 - **We are not:** trendy, slang-heavy, or trying to sound younger than our users' context warrants.
 
-> See [EXAMPLES.md § Voice attribute examples](./EXAMPLES.md#voice-attribute-examples) for "This sounds like / This does NOT sound like" copy pairs for each attribute.
+> See [EXAMPLES.md § Voice attribute examples](./references/EXAMPLES.md#voice-attribute-examples) for "This sounds like / This does NOT sound like" copy pairs for each attribute.
 
 ---
 
@@ -137,7 +162,7 @@ GlobalLink leans concise. Users are task-focused professionals who scan interfac
 
 GlobalLink is strongly respectful by default. Our products operate across cultures, languages, and regulated industries. Irreverence, sarcasm, and overly casual language carry cultural risk and undermine user trust. The tone **never becomes irreverent**.
 
-> See [EXAMPLES.md § Tone spectrum examples](./EXAMPLES.md#tone-spectrum-examples) for copy pairs illustrating the floor, default, and ceiling of each dimension.
+> See [EXAMPLES.md § Tone spectrum examples](./references/EXAMPLES.md#tone-spectrum-examples) for copy pairs illustrating the floor, default, and ceiling of each dimension.
 
 ---
 
@@ -166,7 +191,7 @@ The spectrum defines what is possible. Where a specific product sits within that
 - **Content / marketing teams** — balanced to slightly casual; completion moments can feel more celebratory
 - **Event attendees** -
 
-> See [EXAMPLES.md § Industry copy examples](./EXAMPLES.md#industry-copy-examples) for side-by-side copy pairs showing the same message written for different industry contexts.
+> See [EXAMPLES.md § Industry copy examples](./references/EXAMPLES.md#industry-copy-examples) for side-by-side copy pairs showing the same message written for different industry contexts.
 
 ---
 
@@ -224,7 +249,7 @@ These structures define what to include in each content type. Tone is set by Par
 - Add context the label alone doesn't provide — not a restatement of it.
 - If a useful tooltip requires more than one sentence, the UI element probably needs a better label.
 
-> See [EXAMPLES.md § Copy pattern examples](./EXAMPLES.md#copy-pattern-examples) for worked ✓/✗ examples for each content type, including industry-specific variants.
+> See [EXAMPLES.md § Copy pattern examples](./references/EXAMPLES.md#copy-pattern-examples) for worked ✓/✗ examples for each content type, including industry-specific variants.
 
 ---
 

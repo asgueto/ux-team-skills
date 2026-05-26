@@ -24,7 +24,7 @@ Before starting the session, read:
 - `references/GUIDE_TEMPLATE.md` — the output template. Use it when generating the final guide.
 
 For full detail on any topic (AI content, emails, consent patterns, content testing), the complete master guide is at:
-`/Users/asgueto/projects/design-system/docs/COMPASS_VOICE_AND_TONE.md`
+`../compass/COMPASS_VOICE_AND_TONE.md`
 
 ---
 
@@ -143,9 +143,11 @@ After showing all examples, ask: "Does this sound like your product and your use
 Once all five steps are confirmed, generate the product voice guide using `references/GUIDE_TEMPLATE.md` as the structure.
 
 **Filename**: `[product-name]-voice-guide.md` (lowercase, hyphenated — e.g., `globallink-events-voice-guide.md`)
-**Save to**: `/Users/asgueto/projects/ux-team-skills/content/`
+**Save to**: the product's own repository. The guide should live where the team will actually use it — typically a `docs/`, `content/`, or `design/` folder within the product repo. Ask the team where they keep design documentation if unsure.
 
-After saving, share a link to the file and give the team a one-paragraph summary of what's in it. Mention that it should be reviewed alongside the Compass master guide (`COMPASS_VOICE_AND_TONE.md`) and the Product Voice Workbook (`COMPASS_PRODUCT_VOICE_WORKBOOK.md`).
+After saving, share a link to the file and give the team a one-paragraph summary of what's in it. Remind them of two things:
+1. The guide is designed to be used alongside the `globallink-voice` skill — when writing copy, load that skill and point it to this guide. It will apply both layers together.
+2. It should be reviewed quarterly, and any time a new user type or major feature is added. The review cadence is already documented at the bottom of the guide.
 
 ---
 

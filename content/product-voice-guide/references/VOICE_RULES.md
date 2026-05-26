@@ -1,7 +1,9 @@
 # Compass Voice Rules — Quick Reference
 
-> Condensed from COMPASS_VOICE_AND_TONE.md v2.1. For full detail, read the master guide at:
-> `/Users/asgueto/projects/design-system/docs/COMPASS_VOICE_AND_TONE.md`
+> **Derived from** `../../compass/COMPASS_VOICE_AND_TONE.md` v2.1. This is a condensed extract — not the source of truth.
+> For full detail (AI content, emails, consent patterns, content testing), read the master guide directly.
+>
+> **Maintenance:** When `COMPASS_VOICE_AND_TONE.md` is updated, review and update this file to keep it in sync. Sections most likely to drift: tone spectrum ranges, industry calibration table, style rules, and blocklist.
 
 ---
 

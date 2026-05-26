@@ -1,6 +1,0 @@
-{
-  "eval_id": 0,
-  "eval_name": "legal-contract-review",
-  "prompt": "We're building a new product for legal teams to manage contract review workflows. It's not about translation — it's about routing contracts to the right reviewers, tracking approvals, and keeping everything auditable. We call it 'GlobalLink Review'. Our users are legal operations managers (who set up workflows and assign reviewers), contract reviewers (lawyers and paralegals who review and approve), and compliance auditors (who check the audit trail). The stakes are high — contracts have financial and legal consequences, mistakes are costly, and our clients are law firms and in-house legal teams at large enterprises. The biggest stress moments are when a contract is stuck in review and a deadline is approaching, when a reviewer misses their approval window, and when an auditor can't find a record they need. Industry: Legal.",
-  "assertions": []
-}

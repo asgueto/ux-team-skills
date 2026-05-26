@@ -5,6 +5,9 @@
 **Created**: [Date] | **Next review**: [Date + 3 months]
 **Product owner**: [PM name or role] | **Content owner**: [Design lead name or role]
 
+> **How to use this guide with AI**
+> This guide is a product overlay for the `globallink-voice` skill. When writing copy, load the `globallink-voice` skill and provide this file — the skill will apply both layers together. GlobalLink base rules apply everywhere; settings in this guide take precedence for this product's tone positions, registers, and terminology. Anything this guide doesn't cover falls back to the Compass master guide.
+
 ---
 
 ## 1. Product context
