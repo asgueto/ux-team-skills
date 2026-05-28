@@ -25,7 +25,11 @@ ux-team-skills/
 │   ├── prompt-builder/
 │   └── spec-ideation/
 ├── content/
-│   └── globallink-voice/
+│   ├── globallink-voice/
+│   ├── product-voice-guide/
+│   └── dist/               ← packaged .skill and .plugin files for distribution
+├── process/
+│   └── discovery-tickets/
 └── design-system/
 ```
 
@@ -51,7 +55,14 @@ ux-team-skills/
 
 | Skill | What it does |
 |---|---|
-| `content/globallink-voice` | Defines GlobalLink voice personality, tone ranges, copy patterns, and translatability rules for in-product content. Use when writing, reviewing, or auditing UX copy, microcopy, errors, notifications, onboarding, or any text inside a GlobalLink product. |
+| `content/globallink-voice` | Defines GlobalLink voice personality, tone ranges, copy patterns, and translatability rules for in-product content. Use when writing, reviewing, or auditing UX copy, microcopy, errors, notifications, onboarding, or any text inside a GlobalLink product. Supports a product overlay — load alongside a product voice guide to apply both layers together. |
+| `content/product-voice-guide` | Walks a product team through a guided session to create their product-specific voice & tone guide — tone registers, calibrated tone positions, terminology, and microcopy examples. Extends the Compass master guide for a specific product and user base. |
+
+### Process
+
+| Skill | What it does |
+|---|---|
+| `process/discovery-tickets` | Guides researchers and designers through creating well-structured discovery tickets for Azure DevOps — Feature tickets and PBIs (Research, Design, Validation). Produces ready-to-paste content in the correct format for each ticket type. |
 
 ### Design System
 *Skills coming soon.*
@@ -78,7 +89,7 @@ ux-team-skills/
 
 ## How to contribute a new skill
 
-1. Create a new folder inside the relevant category (`research/`, `design/`, `content/`, `design-system/`)
+1. Create a new folder inside the relevant category (`research/`, `design/`, `content/`, `process/`, `design-system/`)
 2. Add a `SKILL.md` file following the structure of existing skills
 3. Add a `references/` subfolder if the skill needs example files
 4. Submit a pull request or commit directly if you have write access
