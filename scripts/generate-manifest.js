@@ -11,6 +11,7 @@ const path = require('path');
 
 const SKILL_CATEGORIES = ['research', 'design', 'content', 'process'];
 const REPO_ROOT = path.join(__dirname, '..');
+const SKILLS_ROOT = path.join(REPO_ROOT, 'skills');
 
 // Parse YAML frontmatter from SKILL.md
 function parseFrontmatter(content) {
@@ -57,7 +58,7 @@ function generateManifest() {
   const skills = [];
 
   for (const category of SKILL_CATEGORIES) {
-    const categoryPath = path.join(REPO_ROOT, category);
+    const categoryPath = path.join(SKILLS_ROOT, category);
     if (!fs.existsSync(categoryPath)) continue;
 
     const skillFolders = fs.readdirSync(categoryPath)
@@ -80,7 +81,7 @@ function generateManifest() {
           ? frontmatter.name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
           : skillFolder,
         version: extractVersion(content) || '1.0.0',
-        path: `${category}/${skillFolder}`,
+        path: `skills/${category}/${skillFolder}`,
         description: (frontmatter.description || '').substring(0, 200),
         tags: extractTags(frontmatter.description || ''),
         referenceFiles: referenceFiles
