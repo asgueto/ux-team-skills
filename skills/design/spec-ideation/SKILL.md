@@ -24,19 +24,29 @@ The framework is **domain-agnostic** (works for research, development, design, d
 **Goal**: Discover what you don't know you don't know.
  
 **How it works:**
-1. Start with a **user story or EARS requirement** (not a vague question)
-2. AI expands: suggests components, architecture, technologies, implications
+1. Start with **what you have + what you're trying to solve**:
+   - The specs, brief, or problem description (in whatever form you have it)
+   - The intent: what goal or problem are you solving?
+   - Who it's for (if known)
+2. AI expands: suggests components, edge cases, implications, alternatives
 3. You receive information you hadn't considered
 4. Your understanding of the problem grows
+
+**Minimal starting point:**
+- What do you know about the problem? (specs, brief, user story, or just a description)
+- What are you trying to accomplish? (the goal/intent/problem)
+- Who is this for? (optional, but helpful)
+
 **When to use:**
 - There are unanswered questions
 - AI suggests things you don't understand
-- You're unsure if your initial solution is correct
+- You're unsure if your initial approach is correct
+
 **Example interaction:**
 ```
-User: "I need to normalize contacts from spreadsheets: separate first/last name, apply title case"
-Claude: "What about compound names? Prefixes? Special characters? Duplicate data?"
-User: "I hadn't considered that"
+User: "We need to normalize contact data from spreadsheets. Separate first/last names, apply title case"
+Claude: "What about compound names? Prefixes? Accents? Duplicate entries? How will this integrate with our systems?"
+User: "I hadn't considered those"
 ```
  
 ### Phase 2: Contraction (The Iterative Loop)
@@ -90,22 +100,42 @@ Artifacts that emerge are **thought synthesis**, not templates:
 - Record decisions during implementation
 - Adjust if context changes
 - Serves as reference for why each decision was made
-## Supporting Tools
- 
+## How to Start: Input Formats
+
+Your team uses different formats depending on the PM. All are valid starting points. Pick whatever works for you.
+
 ### User Stories
 **Format**: "As [role], I need [action], to [benefit]"
-**Use in framework**: Starting point for expansion, lets AI understand the human "why"
- 
-### EARS (Easy Approach to Requirement Syntax)
-**Format**:
-- Given [context]
-- When [action]
-- Then [expected result]
-**Use in framework**: Technical specification when there's sufficient clarity
- 
-### Custom Subprompts
-**Concept**: Your coded opinions that you control
-**Example**: "When suggesting architectures, prioritize: portability, maintainability, simplicity. In that order."
+**Example**: "As a product manager, I need to track feature requests from multiple sources, to prioritize what to build"
+**Use**: Helpful for clarity, but not required. If you have it, use it.
+
+### Specs/Brief
+**Format**: Written description of requirements, constraints, context
+**Example**: "Build a dashboard showing user engagement metrics. Show last 30 days. Real-time updates. Works on mobile."
+**Use**: What most of your team brings. Claude works with this directly.
+
+### Problem Statement
+**Format**: "We need to [solve X]" or "The problem is [Y]"
+**Example**: "We need to reduce onboarding time for new users from 2 hours to 30 minutes"
+**Use**: If you don't have specs yet, start here. Claude helps you flesh it out.
+
+### Structured Requirement (Optional)
+**Format**: Breaking down the problem into context, condition, and outcome:
+- **Given** [context/background]
+- **When** [action/event]
+- **Then** [expected result/goal]
+
+**Example**:
+- **Given**: New users don't know where to start
+- **When**: They log in for the first time
+- **Then**: We want them to complete 3 key setup steps in under 5 minutes
+
+**Use**: If you want to be more structured in describing the requirement, this format helps Claude understand all the angles.
+
+### Custom Instructions
+**Concept**: Your team's priorities that you control
+**Example**: "When suggesting solutions, prioritize: simplicity first, then scalability. Avoid over-engineering."
+**Use in framework**: Give Claude context on what matters to your team so suggestions are aligned
  
 ## Clarity Metrics
  
@@ -160,26 +190,36 @@ When a user engages this skill:
    - Starting a new idea? → Expansion
    - Refining understanding? → Contraction
    - Ready to document? → Documentation
-2. **During Expansion:**
+
+2. **At the start, get clarity on:**
+   - What information do they have? (specs, brief, user story, problem statement — any format)
+   - What are they trying to accomplish? (the goal/intent/problem)
+   - Who is it for? (optional but helpful)
+   - Don't expect perfect structure — accept what they bring
+
+3. **During Expansion:**
    - Ask probing questions about aspects they haven't considered
-   - Suggest components, implications, alternatives
+   - Suggest components, implications, alternatives, edge cases
    - Identify gaps in their thinking
-   - Don't accept vague requests - ask for user stories or requirements
-3. **During Contraction:**
+   - If the problem is vague, ask clarifying questions to understand the intent
+
+4. **During Contraction:**
    - Present trade-offs clearly
    - Explain WHY, not just WHAT
    - Question assumptions (theirs and yours)
-   - Identify edge cases
+   - Identify edge cases and implications
    - Help refine scope through iterative questioning
    - Signal when they might need more expansion
-4. **During Documentation:**
+
+5. **During Documentation:**
    - Only proceed when user shows signs of sufficient clarity
    - Structure artifacts that reflect the decisions made
    - Include justifications for choices
    - Make trade-offs explicit
    - Suggest next steps or validation approaches
-5. **Throughout all phases:**
-   - Be direct but thoughtful (37signals style, softened)
+
+6. **Throughout all phases:**
+   - Be direct but thoughtful
    - Avoid list-heavy responses unless specifically requested
    - Use prose with natural language lists ("things include: x, y, and z")
    - Make decisions transparent and questionable
