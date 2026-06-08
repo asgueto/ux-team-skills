@@ -1,17 +1,16 @@
-# Prompt Builder — Examples & References
+# Design Prompt Builder — Examples & References
 
-**Version:** 2.0.0 | Examples, do/don't pairs, and art direction anatomy for the enhanced Prompt Builder skill.
+**Version:** 2.0.0 | Examples, do/don't pairs, and art direction anatomy for the design prompt builder skill.
 
 ---
 
 ## Quick Index
 
 1. **Design Prompt Examples** — Real examples across artifact types
-2. **Research Prompt Examples** — Screeners, discussion guides, synthesis
-3. **Do/Don't Pairs** — By component (Object, Style, Context, Constraints)
-4. **Art Direction Anatomy** — How to extract visual language from products
-5. **Visual Vocabulary Examples** — Specific language for color, typography, spacing, motion
-6. **Researcher Credibility Checklist** — What makes research prompts trustworthy
+2. **Do/Don't Pairs** — By component (Object, Style, Context, Constraints)
+3. **Art Direction Anatomy** — How to extract visual language from products
+4. **Visual Vocabulary Examples** — Specific language for color, typography, spacing, motion
+5. **Reference Site Quick Guide** — When to use which site
 
 ---
 
@@ -74,15 +73,15 @@ STYLE
 - Loading states: linear progress bar, no skeleton screens (data loads fast or we've failed)
 
 CONTEXT
-Engineering team leads (5–20 people per team) at mid-stage SaaS startups (20–200 engineers total). They check this dashboard during standup prep, after deployments, and when triaging incidents. They're context-switching from Slack, email, Jira. They need to scan in <30 seconds and drill into one metric if needed. They're familiar with dashboards but hate "dashboard bloat" — they've seen too many Datadog-style walls of data that teach you nothing.
+Engineering team leads (5–20 people per team) at mid-stage SaaS startups (20–200 engineers total). They check this dashboard during standup prep, after deployments, and when triaging incidents. They're context-switching from Slack, email, Jira. They need to scan in <30 seconds and drill into one metric if needed. They're familiar with dashboards but hate "dashboard bloat" — they've seen too many Datadog-style walls of data.
 
 CONSTRAINTS
-- Must work on 27" monitors (1440px viewport) — no horizontal scrolling under any conditions
-- Must render in <1 second on a 4G connection (data is pre-calculated server-side, not computed client)
+- Must work on 27" monitors (1440px viewport) — no horizontal scrolling
+- Must render in <1 second on a 4G connection (data pre-calculated server-side)
 - No custom charts — use bars, lines, simple numbers only
-- Do not include: predictive features, AI-generated insights, anomaly detection (ship the basics first)
+- Do not include: predictive features, AI-generated insights, anomaly detection
 - Align with design system [name]: use component library buttons, modals, color tokens only
-- Data accuracy is non-negotiable: show "last updated at" timestamp, never estimate or cache stale data
+- Data accuracy is non-negotiable: show "last updated at" timestamp
 ```
 
 ---
@@ -206,146 +205,6 @@ CONSTRAINTS
 
 ---
 
-## RESEARCH PROMPT EXAMPLES
-
-### Example 1: User Research Screener
-
-**Research Goal:** Identify power users of the onboarding feature to understand what's working and what's confusing.
-
-**Complete Prompt:**
-
-```
-OBJECT
-Create a 10-question pre-screening survey to identify power users of our product's onboarding feature. We want participants who:
-- Have completed onboarding in the last 60 days (fresh enough to remember friction)
-- Have used the product at least 3 times post-onboarding (took it seriously)
-- Are willing to do a 45-minute recorded interview
-
-Output: 10 questions, pass/fail scoring logic, estimated 3-minute completion time.
-
-METHODOLOGY
-
-**Type & Structure:** Short online screener survey (7 qualifying questions + 3 demographic/availability questions). Pass/fail scoring: must score 6+ of 10 to qualify.
-
-**Participant Profile:** Users who self-identify as "made it past the initial setup" but may not be power users yet. Ranging from tech-savvy to less technical. We expect a mix of industries (B2B SaaS, productivity, design tools).
-
-**Sampling:** Run the screener via email to all users who logged in within the last 30 days. Target: 100 responses, filter for 8–12 interviews.
-
-**Tone & Language:** Conversational, never leading. Avoid jargon. Phrase questions so they elicit honest answers, not "helpful" answers. Example: "What was the one thing about onboarding that confused you?" not "Our onboarding is pretty clear, right?"
-
-**Research Constraints:**
-- No leading questions (cannot imply "the product is confusing" or "onboarding is great")
-- Questions must be answerable in 2–3 minutes total
-- Do not ask: company size, role (save for interview), personal data beyond "have you used it?"
-- All questions must have a clear pass/fail logic
-- Language must be accessible (9th grade reading level max)
-- Do not mention: roadmap, planned changes, competitor names
-
-CONTEXT
-We just launched a new onboarding flow. We want to understand where people get stuck, what's helpful, and what's boring. We're not validating "is this good?" — we're hunting for specific friction points to iterate on. Interviews will inform the next iteration in 3 weeks.
-
-CONSTRAINTS
-- Screener must take <3 minutes to complete
-- Questions cannot be modified post-launch (no mid-stream changes)
-- Must respect user privacy (no behavioral tracking, no third-party tools)
-- Must be mobile-friendly (assume 60% will answer on mobile)
-- Consent language must comply with our privacy policy
-- Cannot ask about feature requests or product suggestions in the screener (save for interview)
-```
-
----
-
-### Example 2: Discussion Guide for 1:1 Research Interviews
-
-**Research Goal:** Understand feature adoption barriers in power users of analytics dashboards.
-
-**Complete Prompt:**
-
-```
-OBJECT
-Write a discussion guide for 45-minute 1:1 interviews with 8–10 power users of our analytics dashboard. Goal: understand why some metrics are used heavily and others are ignored, what workflows are missing, and where they rely on workarounds.
-
-Structure: 15 min context, 20 min current workflows, 10 min unmet needs.
-
-METHODOLOGY
-
-**Type & Structure:** Semi-structured interview guide with 5–7 main questions, space for follow-ups and tangents. Designed for 45-minute Zoom calls with users in their own office (no lab). We'll record audio and take light notes.
-
-**Participant Profile:** 8–10 users who've been active on the dashboard for 3+ months, use it at least 3x/week, and have custom dashboards or reports. Mix of roles: operators, analysts, one product manager.
-
-**Sampling:** Recruited from our research panel of willing customers. Incentive: $50 gift card.
-
-**Tone & Language:** Collaborative, curious, not evaluative. We're learning from them, not testing them. Phrase questions to invite storytelling: "Walk me through your typical Tuesday morning with the dashboard. What's the first thing you look at?" rather than "Do you find the dashboard easy to use?"
-
-**Research Constraints:**
-- No script — conversation should feel natural, not read from a document
-- No leading questions (cannot say "X metric is hard to find" or "Y feature is broken")
-- Follow the participant's lead — if they go deep on a topic, stay there rather than checking off all your questions
-- Do not ask for feature requests (listen for them, don't ask)
-- Do not show mockups or share product roadmap information
-- If participant discloses a bug, note it but don't promise a fix
-
-CONTEXT
-Analytics adoption is stalling. 60% of users only look at 3 metrics habitually and ignore the other 15. We want to understand if it's discoverability, trust, or irrelevance. Insights will inform our metrics redesign in Q3.
-
-CONSTRAINTS
-- Interview must fit in 45 minutes (respect their time)
-- Recording consent must be obtained at the start (script provided)
-- Guide should have 5–7 main discussion areas, not 20 questions (quality over breadth)
-- Do not use the word "metrics" — use "numbers," "reports," "dashboards" (language they actually use)
-- Avoid jargon: "cohort analysis," "funnel," "attribution" — ask for clarification if the participant uses these terms
-- Must not disclose: roadmap, planned features, competitor features, internal goals (e.g., "we want to increase adoption to 75%")
-- Follow-up questions should be open-ended: "Tell me more about that" not "So that was frustrating, right?"
-```
-
----
-
-### Example 3: Synthesis Report Prompt
-
-**Research Goal:** Summarize 12 interview transcripts into findings about customer support workflows.
-
-**Complete Prompt:**
-
-```
-OBJECT
-Synthesize findings from 12 support team interviews (3 customer support leaders, 4 support reps, 5 customer success managers) into a 5-page report identifying:
-- Current support workflows (what actually happens vs. what's documented)
-- Top 3 pain points across the team (blockers, workarounds, time sinks)
-- Top 3 unmet needs (requests that came up unprompted)
-- Recommended research priorities for next phase
-
-Output: Executive summary (1 page), Findings (3 pages with 2–3 quotes per finding), Recommendations (1 page).
-
-METHODOLOGY
-
-**Type & Structure:** Research synthesis report, narrative-driven with supporting quotes. Each finding should be grounded in at least 3 participant mentions (show that it's real, not an outlier). Findings are organized by theme, not by person.
-
-**Source Material:** 12 interview transcripts (45–60 min each), some with rough notes on key moments. Transcripts are complete recordings; not all are word-for-word transcribed (some are summary notes + key quotes).
-
-**Tone & Language:** Professional but accessible. Findings should be written for product and leadership audiences who haven't read the transcripts. Use direct quotes strategically to illustrate a point, not just to fill space. Recommend next research (e.g., "We should validate this finding with customer support users at 2+ larger firms") rather than product decisions.
-
-**Research Constraints:**
-- Maintain participant anonymity (no names, no company names, no specific customer mentions)
-- Do not extrapolate beyond what participants said (note open questions for future research)
-- Do not recommend features or product changes (describe problems, let the product team recommend solutions)
-- Each finding should be grounded in at least 2–3 independent mentions (outliers go in "other considerations" section)
-- Do not overweight any single participant's experience (if one person had a unique problem, flag it as such)
-- Do not include recommendations that rely on assumptions outside the research scope
-
-CONTEXT
-We recently launched a new support ticketing integration. Early feedback suggests it's solving some problems but creating new ones. This research will inform whether we iterate on the integration, pivot to a different approach, or double down. Results will be shared with the support team, product, and leadership in a meeting.
-
-CONSTRAINTS
-- Report must be 5 pages (1000–1200 words)
-- Executive summary must be skimmable (key findings in bullets, <200 words)
-- Each finding must have at least 1 supporting quote (unless it's not quotable — then explain why)
-- Do not include participant lists, demographic breakdowns, or methodology details (assume readers trust the process)
-- Recommendations should be framed as research priorities, not product roadmap items
-- Tone: honest about limitations (e.g., "We didn't interview enough customer support teams at enterprises, so we can't speak to their workflows")
-```
-
----
-
 ## DO/DON'T PAIRS
 
 ### OBJECT Component
@@ -460,16 +319,6 @@ CONSTRAINTS
 
 ---
 
-#### ❌ WEAK: Vague technical constraint
-
-> "Follow the design system."
-
-#### ✅ STRONG: Specific system + exceptions
-
-> "Constraints: Use only components from [Design System Name] v2.1 (button, card, modal, input, select, toggle). All colors must map to our design system color tokens. Exception: if a new color is needed (e.g., for status states), define it as a new token rather than using a custom hex. All typography uses [Font Name] — no fallback fonts."
-
----
-
 ## ART DIRECTION ANATOMY
 
 ### How to Extract Art Direction from a Product (Example: Linear)
@@ -552,54 +401,6 @@ Now you have specific observations:
 
 ---
 
-## RESEARCHER CREDIBILITY CHECKLIST
-
-When a researcher runs their prompt through the credibility test, use this checklist to spot gaps:
-
-### Pre-Screener Checklist
-
-- [ ] **Scoring logic is explicit:** Can I point to which answers qualify? Does 6/10 mean yes, and 5/10 mean no?
-- [ ] **No leading questions:** Does any question imply the "right" answer?
-- [ ] **Answerable in 2–3 minutes:** Could someone actually complete this in the time I said?
-- [ ] **Questions are independent:** Does answering Q3 telegraph what Q7 should be?
-- [ ] **Open to different answers:** If someone says "I use it weekly" vs. "I use it daily," can I still score them fairly?
-- [ ] **No jargon:** Would a non-technical user understand every question?
-
-### Discussion Guide Checklist
-
-- [ ] **Main questions are open-ended:** Can I not answer with "yes/no"?
-- [ ] **No leading questions:** Would a participant feel judged if they answered differently?
-- [ ] **Follow-up prompts are prepared:** If someone says "It was confusing," do I have a follow-up that digs deeper?
-- [ ] **Time is realistic:** Could I actually cover all topics in 45 minutes, even with tangents?
-- [ ] **Questions are in logical order:** Does the guide build narrative, or does it jump around?
-- [ ] **Sensitive topics are late in the guide:** Am I asking for trust before asking for criticism?
-
-### Synthesis Report Checklist
-
-- [ ] **Every finding is grounded in 2+ participant mentions:** Did I cherry-pick quotes or find themes?
-- [ ] **Participant anonymity is maintained:** Could anyone identify a participant from the report?
-- [ ] **Quotes are not taken out of context:** Do the quotes support the finding, or do they just sound good?
-- [ ] **Open questions are stated:** Have I called out what I don't know?
-- [ ] **Recommendations are framed as research priorities, not product decisions:** Am I speculating or synthesizing?
-- [ ] **Limitations are honest:** Have I noted which user types I didn't interview, which scenarios I didn't explore?
-
----
-
-## REFERENCE SITES FOR ART DIRECTION
-
-When designers are stuck, point them to these curated collections (mentioned in Step 3 Product References):
-
-| Site | When to use | What to look for |
-|------|---|---|
-| **60fps.design** | Motion, interaction feel, timing | Pick an app you admire, filter by interaction type (e.g., "swipe," "scroll," "morph"). Watch how fast/smooth the transition is. 1900+ examples. |
-| **UXSnaps** | Real app patterns, UI decisions, lessons | Pick a competitor or inspiring app. Read the breakdown of how they solved a problem (e.g., "How Notion handles empty states"). |
-| **Mobbin** | Mobile patterns, component states | Search for your artifact type (e.g., "onboarding screens," "dashboard"). See 20+ variations from different apps. Compare approaches. |
-| **21st.dev** | Component-level design, interactive examples | If you're designing a component, see how others built it (e.g., 100+ button components). Fork and remix one. |
-| **abtest.design** | Conversion patterns, user behavior nudges | If you need to design for a specific outcome (signup, trial conversion, engagement), see what A/B tests proved worked. |
-| **DesignSpells** | Color theory, spatial design, style language | If you're stuck on color palette or overall aesthetic, read essays on specific style movements or color psychology. |
-
----
-
 ## QUICK REFERENCE: When to Use Which Reference Site
 
 **I'm designing a button and need component inspiration:**
@@ -617,35 +418,5 @@ When designers are stuck, point them to these curated collections (mentioned in 
 **I need to see mobile design patterns:**
 → Mobbin (see 30+ variations of onboarding, checkout, etc. from mobile apps)
 
----
-
-## TEMPLATE: Before/After Prompt Evolution
-
-Here's how a weak prompt becomes strong through the skill:
-
-### ITERATION 1: Raw idea
-
-**Designer:** "I need a landing page for a design tool."
-
-### ITERATION 2: After object clarification
-
-> "Generate a landing page for an AI-powered design assistant aimed at in-house design teams at SaaS startups. The page should show: hero (headline, subhead, CTA), 3 key features, social proof (logos + quotes), pricing, FAQ, and footer. Single scroll, no popups."
-
-### ITERATION 3: After product reference (Step 3)
-
-> Designer cites: Figma, Linear, Framer.
-> Observations: Confident use of brand color, lots of white space, type is bold and easy to scan, features shown with minimal explanation (image + headline + one sentence).
-
-### ITERATION 4: After Style refinement
-
-> "Style: Like Figma's landing page — confident about the product, doesn't oversell. White space is abundant; the page breathes. Color: background is white/off-white, type is dark, the brand color shows up in CTAs and one accent element per section. Type is bold (headings feel strong), body is readable (good contrast + generous line-height). Interaction: CTAs are fast (200ms), nothing flashy. Feeling: 'This is a serious tool made by people who know design.'"
-
-### ITERATION 5: Final prompt with all components
-
-> "OBJECT: Generate a landing page for [product name], a design assistant for in-house design teams. Show: hero, 3 features, social proof, pricing, FAQ. Single scroll.
-> STYLE: Confident, minimal. Like Figma's landing page. White space dominant. Type: bold headings, readable body. Color: white/off-white background, dark text, brand color in CTAs and section accents. Interactions: 200ms ease-out, no animations that distract.
-> CONTEXT: Designers at startups (10–100 people). Landing on this page from a paid ad, they have 10 seconds to decide if this is worth exploring. They're already familiar with design tools; they're checking if this one solves a specific problem they have.
-> CONSTRAINTS: Must load in <2s. No video (too heavy). No forms above the fold. Pricing must be immediately visible. Do not use marketing clichés: no 'beautiful,' no 'seamless,' no 'game-changing.'"
-
-Notice how each iteration adds specificity and grounds the design in reality.
-
+**I'm designing icons and need a style system:**
+→ freesets.dev/icons (browse 68+ icon sets, pick one that matches your aesthetic)

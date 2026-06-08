@@ -1,0 +1,16 @@
+# Packaged artifacts — generated on-demand, not committed
+*.skill
+*.zip
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Editor backups
+*~
+*.swp
+*.swo
