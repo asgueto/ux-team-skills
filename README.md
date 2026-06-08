@@ -18,28 +18,48 @@ Skills do not replace team judgment. They support it.
 
 ```
 ux-team-skills/
-├── research/
-│   ├── research-plan/
-│   └── research-readout/
-├── design/
-│   ├── prompt-builder/
-│   └── spec-ideation/
-├── content/
-│   ├── globallink-voice/
-│   │   └── references/
-│   │       ├── EXAMPLES.md
-│   │       └── COMPASS_VOICE_AND_TONE.md
-│   └── product-voice-guide/
-│       └── references/
-│           ├── VOICE_RULES.md
-│           ├── GUIDE_TEMPLATE.md
-│           ├── COMPASS_VOICE_AND_TONE.md
-│           └── COMPASS_PRODUCT_VOICE_WORKBOOK.md
-├── process/
-│   └── discovery-tickets/
-├── skills.json             ← skill metadata and manifest
-├── CONTRIBUTION.md         ← guide for contributing skills
-└── README.md               ← this file
+├── skills/
+│   ├── research/
+│   │   ├── research-plan/
+│   │   │   ├── SKILL.md
+│   │   │   └── references/
+│   │   │       ├── EXAMPLES.md
+│   │   │       └── TEMPLATES.md
+│   │   └── research-readout/
+│   │       ├── SKILL.md
+│   │       └── references/
+│   │           └── EXAMPLES.md
+│   ├── design/
+│   │   ├── prompt-builder/
+│   │   └── spec-ideation/
+│   ├── content/
+│   │   ├── globallink-voice/
+│   │   │   ├── SKILL.md
+│   │   │   └── references/
+│   │   │       ├── EXAMPLES.md
+│   │   │       └── COMPASS_VOICE_AND_TONE.md
+│   │   └── product-voice-guide/
+│   │       ├── SKILL.md
+│   │       └── references/
+│   │           ├── VOICE_RULES.md
+│   │           ├── GUIDE_TEMPLATE.md
+│   │           ├── COMPASS_VOICE_AND_TONE.md
+│   │           └── COMPASS_PRODUCT_VOICE_WORKBOOK.md
+│   └── process/
+│       └── discovery-tickets/
+│           ├── SKILL.md
+│           └── references/
+│               ├── SCENARIOS.md
+│               └── TEMPLATES.md
+├── scripts/
+│   └── generate-manifest.js    ← auto-generates skills.json
+├── .husky/
+│   └── pre-commit              ← runs manifest generator on commit
+├── package.json
+├── skills.json                 ← skill metadata manifest (auto-generated)
+├── CONTRIBUTION.md             ← guide for contributing skills
+├── .gitignore
+└── README.md                   ← this file
 ```
 
 ---
@@ -75,21 +95,52 @@ ux-team-skills/
 
 ---
 
-## Setup for Contributors
+## Quick Start
 
-**First time cloning the repo?** Run this once:
+**First time using this repo?**
 
 ```bash
+# Clone the repo
+git clone https://github.com/[your-org]/ux-team-skills.git
+cd ux-team-skills
+
+# One-time setup (installs dependencies + sets up pre-commit hook)
 npm install
 ```
 
-This installs dependencies and sets up a pre-commit hook that automatically updates `skills.json` whenever you commit changes to a skill. You don't need to do anything — it happens automatically.
+Done. Now you can create or update skills.
+
+**To add a new skill:**
+
+```bash
+# Create a branch
+git checkout -b add/my-skill-name
+
+# Create your skill folder
+mkdir -p skills/[category]/[skill-id]/references
+
+# Add SKILL.md and reference files
+
+# Commit (the pre-commit hook auto-updates skills.json)
+git commit -m "Add my-skill-name skill"
+
+# Push and create a PR
+git push origin add/my-skill-name
+```
+
+See [CONTRIBUTION.md](./CONTRIBUTION.md) for detailed instructions.
+
+---
+
+## Setup for Contributors
+
+The `npm install` command installs dependencies and sets up a pre-commit hook that automatically updates `skills.json` whenever you commit changes to a skill. You don't need to do anything manually — it happens automatically.
 
 ---
 
 ## How to install a skill in Claude
 
-1. Navigate to the skill folder you want (e.g., `research/research-plan/`)
+1. Navigate to the skill folder you want (e.g., `skills/research/research-plan/`)
 2. Download the folder (or clone the whole repo)
 3. In Claude, go to **Settings → Skills**
 4. Upload the skill folder — Claude reads `SKILL.md` and any `references/` files automatically

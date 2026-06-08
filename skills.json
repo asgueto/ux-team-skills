@@ -8,7 +8,7 @@
       "category": "research",
       "name": "Research Plan",
       "version": "1.1.0",
-      "path": "research/research-plan",
+      "path": "skills/research/research-plan",
       "description": "",
       "tags": [
         "skill"
@@ -23,7 +23,7 @@
       "category": "research",
       "name": "Research Readout",
       "version": "1.0.0",
-      "path": "research/research-readout",
+      "path": "skills/research/research-readout",
       "description": "",
       "tags": [
         "skill"
@@ -37,7 +37,7 @@
       "category": "design",
       "name": "Prompt Builder",
       "version": "2.0.0",
-      "path": "design/prompt-builder",
+      "path": "skills/design/prompt-builder",
       "description": "Step-by-step skill that guides designers through building high-quality AI prompts for design artifacts. Use when someone wants to write, build, or improve a design prompt — for UI screens, components,",
       "tags": [
         "design",
@@ -53,7 +53,7 @@
       "category": "design",
       "name": "Spec Ideation",
       "version": "1.0.0",
-      "path": "design/spec-ideation",
+      "path": "skills/design/spec-ideation",
       "description": "Structured framework for working with AI to generate thoughtful solutions through expansion, contraction, and documentation phases. Use when users need to develop ideas, make decisions, or create spec",
       "tags": [
         "research",
@@ -68,7 +68,7 @@
       "category": "content",
       "name": "Globallink Voice",
       "version": "1.2.0",
-      "path": "content/globallink-voice",
+      "path": "skills/content/globallink-voice",
       "description": "",
       "tags": [
         "skill"
@@ -83,7 +83,7 @@
       "category": "content",
       "name": "Product Voice Guide",
       "version": "1.0.0",
-      "path": "content/product-voice-guide",
+      "path": "skills/content/product-voice-guide",
       "description": "",
       "tags": [
         "skill"
@@ -99,7 +99,7 @@
       "category": "process",
       "name": "Discovery Tickets",
       "version": "1.0.0",
-      "path": "process/discovery-tickets",
+      "path": "skills/process/discovery-tickets",
       "description": "",
       "tags": [
         "skill"

@@ -19,16 +19,18 @@ Create a new skill when your team:
 
 ## Skill Structure
 
-Each skill lives in a folder with this structure:
+Each skill lives in a folder inside `skills/[category]/` with this structure:
 
 ```
-skill-name/
+skills/[category]/skill-name/
 ├── SKILL.md              ← required: behavioral instructions + frontmatter
 └── references/           ← optional: example files, templates, checklists
     ├── EXAMPLES.md       ← real team examples with annotations
     ├── TEMPLATES.md      ← ready-to-use templates or checklists
     └── [other files]     ← whatever reference content the skill needs
 ```
+
+Example: `skills/research/research-plan/`
 
 ## SKILL.md Format
 
@@ -180,11 +182,11 @@ Example: `git checkout -b add/research-synthesis`
 ### Step 2: Create the skill folder
 
 ```bash
-mkdir -p [category]/[skill-id]
-mkdir [category]/[skill-id]/references
+mkdir -p skills/[category]/[skill-id]
+mkdir skills/[category]/[skill-id]/references
 ```
 
-Example: `mkdir -p research/research-synthesis && mkdir research/research-synthesis/references`
+Example: `mkdir -p skills/research/research-synthesis && mkdir skills/research/research-synthesis/references`
 
 ### Step 3: Write SKILL.md
 
@@ -202,7 +204,7 @@ In the `references/` folder, add:
 ### Step 5: Commit
 
 ```bash
-git add [category]/[skill-id]/
+git add skills/[category]/[skill-id]/
 git commit -m "Add [skill-name] skill"
 ```
 
