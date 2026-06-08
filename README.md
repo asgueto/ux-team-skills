@@ -101,7 +101,7 @@ ux-team-skills/
 
 ```bash
 # Clone the repo
-git clone https://github.com/[your-org]/ux-team-skills.git
+git clone https://github.com/asgueto/ux-team-skills.git
 cd ux-team-skills
 
 # One-time setup (installs dependencies + sets up pre-commit hook)
