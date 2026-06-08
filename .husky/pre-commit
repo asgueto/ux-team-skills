@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Auto-generate skills.json before commit
+npm run generate-manifest
+
+# Stage the updated manifest
+git add skills.json

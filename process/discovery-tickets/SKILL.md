@@ -4,6 +4,9 @@ description: >
   Guides researchers and designers through creating discovery tickets for Azure DevOps — Feature tickets and PBIs (Research, Design, Validation). Use when someone needs to write a Feature ticket, create a Research PBI, write a Design PBI, create a Validation PBI, or isn't sure what level of ticket they need. Trigger with phrases like "help me write a PBI", "I need to create a ticket for this feature", "how do I structure this discovery ticket", "create a research PBI", "write a design ticket", or "I need to document this feature". Also trigger when someone shares a vague task description and needs to turn it into a properly structured ticket.
 ---
 
+**Version:** 1.0.0 | **Author:** TechOps Design Team  
+**Last Updated:** 2026-05-27
+
 # Discovery Tickets
 
 Guides researchers and designers through creating well-structured discovery tickets for Azure DevOps. Produces ready-to-paste content for Feature tickets and PBIs (Research, Design, Validation).

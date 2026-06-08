@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-06-08",
+  "description": "Manifest of all skills in the UX Team Skills repository. Each skill is located in its category folder and includes a SKILL.md file with behavioral instructions.",
+  "skills": [
+    {
+      "id": "research-plan",
+      "category": "research",
+      "name": "Research Plan",
+      "version": "1.1.0",
+      "path": "research/research-plan",
+      "description": "",
+      "tags": [
+        "skill"
+      ],
+      "referenceFiles": [
+        "references/EXAMPLES.md",
+        "references/TEMPLATES.md"
+      ]
+    },
+    {
+      "id": "research-readout",
+      "category": "research",
+      "name": "Research Readout",
+      "version": "1.0.0",
+      "path": "research/research-readout",
+      "description": "",
+      "tags": [
+        "skill"
+      ],
+      "referenceFiles": [
+        "references/EXAMPLES.md"
+      ]
+    },
+    {
+      "id": "prompt-builder",
+      "category": "design",
+      "name": "Prompt Builder",
+      "version": "2.0.0",
+      "path": "design/prompt-builder",
+      "description": "Step-by-step skill that guides designers through building high-quality AI prompts for design artifacts. Use when someone wants to write, build, or improve a design prompt — for UI screens, components,",
+      "tags": [
+        "design",
+        "prompt",
+        "component"
+      ],
+      "referenceFiles": [
+        "references/EXAMPLES.md"
+      ]
+    },
+    {
+      "id": "spec-ideation",
+      "category": "design",
+      "name": "Spec Ideation",
+      "version": "1.0.0",
+      "path": "design/spec-ideation",
+      "description": "Structured framework for working with AI to generate thoughtful solutions through expansion, contraction, and documentation phases. Use when users need to develop ideas, make decisions, or create spec",
+      "tags": [
+        "research",
+        "design"
+      ],
+      "referenceFiles": [
+        "references/EXAMPLES.md"
+      ]
+    },
+    {
+      "id": "globallink-voice",
+      "category": "content",
+      "name": "Globallink Voice",
+      "version": "1.2.0",
+      "path": "content/globallink-voice",
+      "description": "",
+      "tags": [
+        "skill"
+      ],
+      "referenceFiles": [
+        "references/COMPASS_VOICE_AND_TONE.md",
+        "references/EXAMPLES.md"
+      ]
+    },
+    {
+      "id": "product-voice-guide",
+      "category": "content",
+      "name": "Product Voice Guide",
+      "version": "1.0.0",
+      "path": "content/product-voice-guide",
+      "description": "",
+      "tags": [
+        "skill"
+      ],
+      "referenceFiles": [
+        "references/COMPASS_PRODUCT_VOICE_WORKBOOK.md",
+        "references/GUIDE_TEMPLATE.md",
+        "references/VOICE_RULES.md"
+      ]
+    },
+    {
+      "id": "discovery-tickets",
+      "category": "process",
+      "name": "Discovery Tickets",
+      "version": "1.0.0",
+      "path": "process/discovery-tickets",
+      "description": "",
+      "tags": [
+        "skill"
+      ],
+      "referenceFiles": [
+        "references/SCENARIOS.md",
+        "references/TEMPLATES.md"
+      ]
+    }
+  ]
+}

@@ -4,6 +4,9 @@ description: >
   Creates a product-specific voice & tone guide for any GlobalLink or TransPerfect TechOps product, based on the Compass master guide. Use this skill whenever a product team wants to create a voice guide, define tone of voice for their product, adapt GlobalLink voice to a specific product, document how their product should sound, define copy guidelines or registers for their users, or produce a product-specific extension of the Compass guide. Trigger when someone says things like "create a voice guide for [product]", "we need tone of voice guidelines for our product", "help us define how [product] should sound", "adapt the Compass voice for our product", "let's build a voice guide", or "we want to document our product's tone". Also trigger when the user starts filling in the Product Voice Workbook and asks for help completing it.
 ---
 
+**Version:** 1.0.0 | **Author:** TechOps Design Team  
+**Last Updated:** 2026-05-29
+
 # Product Voice Guide
 
 This skill walks a product team through a guided working session to build their product-specific voice & tone guide — a document that extends the Compass master guide (`COMPASS_VOICE_AND_TONE.md`) for their particular product, users, and context.
@@ -24,7 +27,7 @@ Before starting the session, read:
 - `references/GUIDE_TEMPLATE.md` — the output template. Use it when generating the final guide.
 
 For full detail on any topic (AI content, emails, consent patterns, content testing), the complete master guide is at:
-`../compass/COMPASS_VOICE_AND_TONE.md`
+`references/COMPASS_VOICE_AND_TONE.md`
 
 ---
 
