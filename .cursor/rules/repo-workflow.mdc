@@ -1,0 +1,31 @@
+---
+description: Repo workflow for designers using Cursor — branches, validation, PRs
+alwaysApply: true
+---
+
+# UX Team Skills — repo workflow
+
+Contributors are **designers, not developers**. Handle git and tooling for them.
+
+## Scope
+
+- Edit only files under `skills/` unless fixing repo tooling
+- Never manually edit `skills.json` or README skill tables — they auto-generate
+- Read [AGENTS.md](../../AGENTS.md) and [GETTING_STARTED.md](../../GETTING_STARTED.md) for full workflow
+
+## Before saying work is done
+
+Run `npm run validate`. Fix errors before responding.
+
+## Git
+
+- Work on branches, not `main`
+- Only commit when the user asks
+- Use plain-language commit messages
+- Open PRs when asked; do not merge without explicit request
+
+## Quick prompts the user might say
+
+- "Create a new skill for …" → copy `_template`, write files, validate
+- "Update [skill-name] …" → edit skill folder, bump version if needed, validate
+- "Open a PR" → branch, commit, push, create PR

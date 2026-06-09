@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Generates skills.json manifest from skill SKILL.md files
- * Reads frontmatter and auto-detects reference files
+ * Generates skills.json and README skill tables from SKILL.md files.
  * Run: npm run generate-manifest
  */
 
@@ -13,37 +12,102 @@ const SKILL_CATEGORIES = ['research', 'design', 'content', 'process'];
 const REPO_ROOT = path.join(__dirname, '..');
 const SKILLS_ROOT = path.join(REPO_ROOT, 'skills');
 
-// Parse YAML frontmatter from SKILL.md
 function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return {};
 
   const frontmatter = {};
-  const lines = match[1].split('\n');
+  let currentKey = null;
+  let currentValue = [];
+  let isMultiline = false;
 
-  for (const line of lines) {
-    if (!line.trim()) continue;
-    const [key, ...valueParts] = line.split(':');
-    let value = valueParts.join(':').trim();
+  const finishKey = () => {
+    if (currentKey) {
+      frontmatter[currentKey] = currentValue.join(' ').trim();
+    }
+    currentKey = null;
+    currentValue = [];
+    isMultiline = false;
+  };
 
-    // Remove quotes
-    if ((value.startsWith('"') && value.endsWith('"')) ||
-        (value.startsWith("'") && value.endsWith("'"))) {
-      value = value.slice(1, -1);
+  for (const line of match[1].split('\n')) {
+    const keyMatch = line.match(/^([a-zA-Z_-]+):\s*(.*)$/);
+
+    if (!isMultiline && keyMatch) {
+      finishKey();
+      currentKey = keyMatch[1];
+      const rest = keyMatch[2].trim();
+
+      if (rest === '>' || rest === '|') {
+        isMultiline = true;
+        currentValue = [];
+      } else {
+        frontmatter[currentKey] = rest.replace(/^["']|["']$/g, '');
+        currentKey = null;
+      }
+      continue;
     }
 
-    // Handle multiline descriptions
-    if (key.trim() === 'description') {
-      value = value.replace(/^[>|]\s?/, '').replace(/\n\s+/g, ' ');
+    if (isMultiline) {
+      if (/^\s/.test(line)) {
+        currentValue.push(line.trim());
+      } else if (keyMatch) {
+        finishKey();
+        currentKey = keyMatch[1];
+        const rest = keyMatch[2].trim();
+        if (rest === '>' || rest === '|') {
+          isMultiline = true;
+          currentValue = [];
+        } else {
+          frontmatter[currentKey] = rest.replace(/^["']|["']$/g, '');
+          currentKey = null;
+        }
+      }
     }
-
-    frontmatter[key.trim()] = value;
   }
 
+  finishKey();
   return frontmatter;
 }
 
-// Get reference files in a skill's references/ folder
+function extractVersion(content) {
+  const match = content.match(/\*\*Version:\*\*\s+([0-9.]+)/);
+  return match ? match[1] : null;
+}
+
+function extractTags(description, category) {
+  const tags = [];
+  const keywords = {
+    research: ['research', 'discovery', 'planning', 'synthesis'],
+    design: ['design', 'prompt', 'ideation', 'component'],
+    content: ['voice', 'tone', 'copy', 'microcopy'],
+    process: ['process', 'ticket', 'workflow'],
+  };
+
+  const descLower = description.toLowerCase();
+  for (const keyword of keywords[category] || []) {
+    if (descLower.includes(keyword) && !tags.includes(keyword)) {
+      tags.push(keyword);
+    }
+  }
+
+  return tags.length > 0 ? tags : ['skill'];
+}
+
+function summarizeDescription(description, maxLength = 160) {
+  const cleaned = description.replace(/\s+/g, ' ').trim();
+  if (!cleaned) return '—';
+
+  const firstSentence = cleaned.match(/^[^.!?]+[.!?]?/)?.[0]?.trim() || cleaned;
+  const candidate = firstSentence.length <= maxLength ? firstSentence : cleaned;
+
+  if (candidate.length <= maxLength) return candidate;
+
+  const truncated = candidate.slice(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return `${truncated.slice(0, lastSpace > 0 ? lastSpace : maxLength).trim()}…`;
+}
+
 function getReferenceFiles(skillPath) {
   const refsPath = path.join(skillPath, 'references');
   if (!fs.existsSync(refsPath)) return [];
@@ -53,8 +117,7 @@ function getReferenceFiles(skillPath) {
     .map(f => `references/${f}`);
 }
 
-// Main function
-function generateManifest() {
+function collectSkills() {
   const skills = [];
 
   for (const category of SKILL_CATEGORIES) {
@@ -62,19 +125,19 @@ function generateManifest() {
     if (!fs.existsSync(categoryPath)) continue;
 
     const skillFolders = fs.readdirSync(categoryPath)
+      .filter(f => !f.startsWith('_'))
       .filter(f => fs.statSync(path.join(categoryPath, f)).isDirectory());
 
     for (const skillFolder of skillFolders) {
       const skillPath = path.join(categoryPath, skillFolder);
       const skillMdPath = path.join(skillPath, 'SKILL.md');
-
       if (!fs.existsSync(skillMdPath)) continue;
 
       const content = fs.readFileSync(skillMdPath, 'utf8');
       const frontmatter = parseFrontmatter(content);
-      const referenceFiles = getReferenceFiles(skillPath);
+      const description = frontmatter.description || '';
 
-      const skill = {
+      skills.push({
         id: frontmatter.name || skillFolder,
         category,
         name: frontmatter.name
@@ -82,16 +145,14 @@ function generateManifest() {
           : skillFolder,
         version: extractVersion(content) || '1.0.0',
         path: `skills/${category}/${skillFolder}`,
-        description: (frontmatter.description || '').substring(0, 200),
-        tags: extractTags(frontmatter.description || ''),
-        referenceFiles: referenceFiles
-      };
-
-      skills.push(skill);
+        description,
+        summary: summarizeDescription(description),
+        tags: extractTags(description, category),
+        referenceFiles: getReferenceFiles(skillPath),
+      });
     }
   }
 
-  // Sort by category then name
   skills.sort((a, b) => {
     if (a.category !== b.category) {
       return SKILL_CATEGORIES.indexOf(a.category) - SKILL_CATEGORIES.indexOf(b.category);
@@ -99,47 +160,61 @@ function generateManifest() {
     return a.id.localeCompare(b.id);
   });
 
+  return skills;
+}
+
+function writeManifest(skills) {
   const manifest = {
     version: '1.0.0',
     lastUpdated: new Date().toISOString().split('T')[0],
     description: 'Manifest of all skills in the UX Team Skills repository. Each skill is located in its category folder and includes a SKILL.md file with behavioral instructions.',
-    skills
+    skills,
   };
 
-  // Write manifest
-  const manifestPath = path.join(REPO_ROOT, 'skills.json');
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
-
-  console.log(`✓ Generated skills.json with ${skills.length} skills`);
-  process.exit(0);
+  fs.writeFileSync(path.join(REPO_ROOT, 'skills.json'), `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
-// Extract version from content
-function extractVersion(content) {
-  const match = content.match(/\*\*Version:\*\*\s+([0-9.]+)/);
-  return match ? match[1] : null;
+function buildCategoryTable(category, skills) {
+  const rows = skills
+    .filter(skill => skill.category === category)
+    .map(skill => `| \`${skill.category}/${skill.id}\` | ${skill.version} | ${skill.summary} |`)
+    .join('\n');
+
+  return `| Skill | Version | What it does |
+|---|---|---|
+${rows}`;
 }
 
-// Extract basic tags from description
-function extractTags(description) {
-  const tags = [];
-  const keywords = {
-    research: ['research', 'discovery', 'planning', 'synthesis'],
-    design: ['design', 'prompt', 'ideation', 'component'],
-    content: ['voice', 'tone', 'copy', 'microcopy'],
-    process: ['process', 'ticket', 'workflow']
-  };
+function updateReadme(skills) {
+  const readmePath = path.join(REPO_ROOT, 'README.md');
+  let readme = fs.readFileSync(readmePath, 'utf8');
 
-  const descLower = description.toLowerCase();
-  for (const [tag, keywords_list] of Object.entries(keywords)) {
-    for (const keyword of keywords_list) {
-      if (descLower.includes(keyword) && !tags.includes(keyword)) {
-        tags.push(keyword);
-      }
+  for (const category of SKILL_CATEGORIES) {
+    const startMarker = `<!-- SKILLS:${category}:START -->`;
+    const endMarker = `<!-- SKILLS:${category}:END -->`;
+    const block = `${startMarker}\n${buildCategoryTable(category, skills)}\n${endMarker}`;
+
+    const pattern = new RegExp(
+      `${startMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[\\s\\S]*?${endMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`
+    );
+
+    if (!pattern.test(readme)) {
+      console.warn(`⚠ README markers missing for category "${category}" — skipping table update`);
+      continue;
     }
+
+    readme = readme.replace(pattern, block);
   }
 
-  return tags.length > 0 ? tags : ['skill'];
+  fs.writeFileSync(readmePath, readme);
+}
+
+function generateManifest() {
+  const skills = collectSkills();
+  writeManifest(skills);
+  updateReadme(skills);
+  console.log(`✓ Generated skills.json with ${skills.length} skills`);
+  console.log('✓ Updated README skill tables');
 }
 
 generateManifest();

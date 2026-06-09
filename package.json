@@ -4,7 +4,11 @@
   "description": "Claude skills for the TechOps Experience Design team",
   "scripts": {
     "prepare": "husky install",
-    "generate-manifest": "node scripts/generate-manifest.js"
+    "generate-manifest": "node scripts/generate-manifest.js",
+    "validate": "node scripts/validate-skills.js"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
     "husky": "^8.0.0"
