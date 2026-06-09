@@ -59,7 +59,7 @@ ux-team-skills/
 │   └── pre-commit              ← runs manifest generator on commit
 ├── package.json
 ├── skills.json                 ← skill metadata manifest (auto-generated)
-├── GETTING_STARTED.md          ← start here (designer-friendly guide)
+├── GETTING_STARTED.md          ← start here (beginner + advanced paths)
 ├── AGENTS.md                   ← AI instructions (Cursor + Claude Code)
 ├── CLAUDE.md                   ← Claude Code entry point
 ├── CONTRIBUTION.md             ← skill writing guidelines
@@ -110,11 +110,15 @@ ux-team-skills/
 
 ## Quick Start
 
-**Contributing a skill?** Open this repo in **Cursor** or **Claude Code** and follow [GETTING_STARTED.md](./GETTING_STARTED.md). Describe what you want in plain language — the AI handles files, git, and validation.
+**New to skills?** → [GETTING_STARTED.md](./GETTING_STARTED.md) — explains what a skill is and offers two paths.
 
-**Using a skill in Claude?** Download a skill folder from `skills/` and upload it in Claude Settings → Skills.
+| Path | Guide |
+|---|---|
+| **Beginner** — describe changes, AI handles files and git | [GETTING_STARTED.md — Path 1](./GETTING_STARTED.md#path-1-beginner-ai-assisted) |
+| **Advanced** — edit skills directly in a cloned repo | [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly) |
+| **Writing quality** — structure, examples, review checklist | [CONTRIBUTION.md](./CONTRIBUTION.md) |
 
-**Writing guidelines?** → [CONTRIBUTION.md](./CONTRIBUTION.md)
+**Using a skill in Claude?** Download a skill folder from `skills/` and upload it in Claude **Customize → Skills**.
 
 ### One-time setup
 
@@ -130,16 +134,12 @@ Then open the folder in Cursor or run Claude Code in that directory. Tell the AI
 
 ## Setup for Contributors
 
-You work in **Cursor or Claude Code**. You describe changes in chat; the AI edits skill files under `skills/`. Everything else is automatic:
+| Path | What you do | What automation handles |
+|---|---|---|
+| **Beginner** | Describe changes in Cursor/Claude Code | AI edits files; validation + index on PR |
+| **Advanced** | Edit `SKILL.md` and `references/` directly | `skills.json`, README tables, validation on commit/PR |
 
-| What | Who updates it |
-|---|---|
-| Skill files (`SKILL.md`, `references/`) | You + AI |
-| `skills.json` (skill index) | Auto-generated on commit/PR |
-| README skill tables | Auto-generated on commit/PR |
-| Validation (structure checks) | AI runs before PR; also on every PR |
-
-See [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste prompts and workflow.
+See [GETTING_STARTED.md](./GETTING_STARTED.md).
 
 ---
 
@@ -147,7 +147,7 @@ See [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste prompts and workfl
 
 1. Navigate to the skill folder you want (e.g., `skills/research/research-plan/`)
 2. Download the folder (or clone the whole repo)
-3. In Claude, go to **Settings → Skills**
+3. In Claude, go to **Customize → Skills**
 4. Upload the skill folder — Claude reads `SKILL.md` and any `references/` files automatically
 5. The skill is now active in your conversations
 
@@ -157,20 +157,19 @@ See [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste prompts and workfl
 
 ## How to update a skill
 
-1. Open the repo in Cursor or Claude Code
-2. Tell the AI what to change (see [GETTING_STARTED.md](./GETTING_STARTED.md) for prompts)
-3. Ask the AI to validate and open a Pull Request
-4. Re-upload the updated skill folder in Claude after merge
+- **Beginner:** tell the AI what to change → [GETTING_STARTED.md](./GETTING_STARTED.md)
+- **Advanced:** edit the skill folder, run `npm run validate`, open a PR → [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly)
+
+Re-upload the skill folder in Claude after merge.
 
 ---
 
 ## How to contribute a new skill
 
-Open the repo in **Cursor** or **Claude Code** and say:
+- **Beginner:** ask the AI in Cursor/Claude Code — [GETTING_STARTED.md](./GETTING_STARTED.md)
+- **Advanced:** copy `skills/_template/`, edit, validate, PR — [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly)
 
-> Help me create a new skill called [name] in the [category] category. It should [describe what it does]. Author: [Your Name].
-
-The AI copies `skills/_template/`, writes the files, validates, and opens a PR. Full prompts: [GETTING_STARTED.md](./GETTING_STARTED.md). Writing guidelines: [CONTRIBUTION.md](./CONTRIBUTION.md).
+Writing guidelines: [CONTRIBUTION.md](./CONTRIBUTION.md)
 
 ---
 

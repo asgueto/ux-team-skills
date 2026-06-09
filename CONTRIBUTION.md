@@ -1,8 +1,13 @@
 # Contributing Skills to UX Team Skills
 
-**New to this repo?** Open it in **Cursor** or **Claude Code** and follow [GETTING_STARTED.md](./GETTING_STARTED.md). Describe what you want in chat — the AI handles files and git.
+**Pick your path:**
 
-This guide covers *what* makes a good skill and *how* to write one.
+| Path | Guide |
+|---|---|
+| New to skills or prefer AI help | [GETTING_STARTED.md](./GETTING_STARTED.md) — Path 1 |
+| Edit files directly in a cloned repo | [GETTING_STARTED.md](./GETTING_STARTED.md) — Path 2 |
+
+This guide covers *what* makes a good skill and *how* to write one — for both paths.
 
 ---
 
@@ -139,24 +144,29 @@ For breaking changes, add a **Migration Note** at the top of `SKILL.md`.
 
 ## Contribution Workflow
 
-**Always work on a branch, not directly on `main`.** In Cursor or Claude Code, ask the AI to create a branch and open a PR when you're ready.
+**Always work on a branch, not directly on `main`.**
+
+| Path | Workflow |
+|---|---|
+| **Beginner** | Describe changes in Cursor/Claude Code → AI edits files → ask AI to validate and open PR |
+| **Advanced** | Branch → edit files under `skills/` → `npm run validate` → commit → push → PR. See [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly) |
 
 ### Add a new skill
 
-Tell the AI:
+**Beginner:** ask the AI to create a skill from `skills/_template/` following this guide.
 
-> Create a new skill in skills/[category]/[skill-name]/. Follow CONTRIBUTION.md and copy from skills/_template/.
-
-Or do it yourself:
+**Advanced:**
 1. Copy `skills/_template/` to `skills/[category]/[skill-name]/`
-2. Edit `SKILL.md` and add reference files
-3. Ask the AI: *"Validate my changes and open a pull request"*
+2. Edit `SKILL.md` and reference files (see sections above)
+3. Run `npm run validate`
+4. Commit and open a PR
 
 ### Update an existing skill
 
-1. Ask the AI to edit the skill folder, or edit files directly in Cursor
-2. Bump version if behavior changed (see table above)
-3. Ask the AI to validate and open a PR
+1. Edit files in the skill folder
+2. Bump version if behavior changed (see Versioning above)
+3. Run `npm run validate`
+4. Commit and open a PR
 
 ### What automation does for you
 
