@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-06-08",
+  "lastUpdated": "2026-06-09",
   "description": "Manifest of all skills in the UX Team Skills repository. Each skill is located in its category folder and includes a SKILL.md file with behavioral instructions.",
   "skills": [
     {
@@ -9,9 +9,11 @@
       "name": "Research Plan",
       "version": "1.1.0",
       "path": "skills/research/research-plan",
-      "description": "",
+      "description": "Use this skill whenever anyone on the team touches a research study — from the first conversation about scoping to reviewing a draft plan to choosing a method. Triggers include: starting a new study,writing or refining research goals, choosing a method, defining participants, aligning with a PM or stakeholder before fieldwork, or asking \"what should go in the plan?\" Activate also when someone says \"I'm planning a study on X\", \"can you help me scope this?\", \"I'm not sure what method to use\", \"my goals feel too broad\", or shares a draft plan for review — even if they don't use the words \"research plan\".",
+      "summary": "Use this skill whenever anyone on the team touches a research study — from the first conversation about scoping to reviewing a draft plan to choosing a method.",
       "tags": [
-        "skill"
+        "research",
+        "planning"
       ],
       "referenceFiles": [
         "references/EXAMPLES.md",
@@ -24,9 +26,11 @@
       "name": "Research Readout",
       "version": "1.0.0",
       "path": "skills/research/research-readout",
-      "description": "",
+      "description": "Use this skill whenever anyone on the team is preparing, writing, or reviewing a research readout, report, or findings presentation. Triggers include: \"I finished the research and need to write the report\", \"help me structure the findings\", \"I need to present results to the PM\", \"how do I write the executive summary\", \"my findings are ready but I don't know how to present them\", or any moment after fieldwork is done and the team needs to communicate what they learned. Also triggers when reviewing an existing report that lacks clear takeaways, business impact, or actionable proposals. This skill focuses on content and synthesis — not visual presentation.",
+      "summary": "Use this skill whenever anyone on the team is preparing, writing, or reviewing a research readout, report, or findings presentation.",
       "tags": [
-        "skill"
+        "research",
+        "synthesis"
       ],
       "referenceFiles": [
         "references/EXAMPLES.md"
@@ -38,7 +42,8 @@
       "name": "Prompt Builder",
       "version": "2.0.0",
       "path": "skills/design/prompt-builder",
-      "description": "Step-by-step skill that guides designers through building high-quality AI prompts for design artifacts. Use when someone wants to write, build, or improve a design prompt — for UI screens, components,",
+      "description": "Step-by-step skill that guides designers through building high-quality AI prompts for design artifacts. Use when someone wants to write, build, or improve a design prompt — for UI screens, components, experiences, or design systems. Walks through Prompt Anatomy (Object, Style, Context, Constraints), FEEL framework (Feeling, Experience, Emotion, Language), and Visual Vocabulary. Trigger with: 'help me write a design prompt', 'I need a prompt for a UI', 'build a prompt for a component', 'improve my design prompt', or any request to create a prompt for a design artifact.",
+      "summary": "Step-by-step skill that guides designers through building high-quality AI prompts for design artifacts.",
       "tags": [
         "design",
         "prompt",
@@ -54,9 +59,9 @@
       "name": "Spec Ideation",
       "version": "1.0.0",
       "path": "skills/design/spec-ideation",
-      "description": "Structured framework for working with AI to generate thoughtful solutions through expansion, contraction, and documentation phases. Use when users need to develop ideas, make decisions, or create spec",
+      "description": "Structured framework for working with AI to generate thoughtful solutions through expansion, contraction, and documentation phases. Use when users need to develop ideas, make decisions, or create specifications for design, development, research, or any domain requiring structured thinking. Triggers include requests to ideate, plan, specify, or work through complex problems.",
+      "summary": "Structured framework for working with AI to generate thoughtful solutions through expansion, contraction, and documentation phases.",
       "tags": [
-        "research",
         "design"
       ],
       "referenceFiles": [
@@ -69,9 +74,13 @@
       "name": "Globallink Voice",
       "version": "1.2.0",
       "path": "skills/content/globallink-voice",
-      "description": "",
+      "description": "Defines GlobalLink's voice personality, valid tone ranges, copy patterns, and translatability rules for all in-product content. Use when writing, reviewing, or evaluating any UX copy, microcopy, error messages, notifications, onboarding text, or any written content that appears inside a GlobalLink product. Also use when adapting tone for a specific product, user type, or industry vertical. If the product has a product-specific voice guide, this skill will load it as a product overlay and apply both layers together — always trigger this skill first when writing product copy. Trigger when writing or auditing copy for any GlobalLink product, or when asked \"how should this sound in GlobalLink?\" For worked copy examples, Do/Don't pairs, and industry-specific illustrations, also load references/EXAMPLES.md.",
+      "summary": "Defines GlobalLink's voice personality, valid tone ranges, copy patterns, and translatability rules for all in-product content.",
       "tags": [
-        "skill"
+        "voice",
+        "tone",
+        "copy",
+        "microcopy"
       ],
       "referenceFiles": [
         "references/COMPASS_VOICE_AND_TONE.md",
@@ -84,12 +93,16 @@
       "name": "Product Voice Guide",
       "version": "1.0.0",
       "path": "skills/content/product-voice-guide",
-      "description": "",
+      "description": "Creates a product-specific voice & tone guide for any GlobalLink or TransPerfect TechOps product, based on the Compass master guide. Use this skill whenever a product team wants to create a voice guide, define tone of voice for their product, adapt GlobalLink voice to a specific product, document how their product should sound, define copy guidelines or registers for their users, or produce a product-specific extension of the Compass guide. Trigger when someone says things like \"create a voice guide for [product]\", \"we need tone of voice guidelines for our product\", \"help us define how [product] should sound\", \"adapt the Compass voice for our product\", \"let's build a voice guide\", or \"we want to document our product's tone\". Also trigger when the user starts filling in the Product Voice Workbook and asks for help completing it.",
+      "summary": "Creates a product-specific voice & tone guide for any GlobalLink or TransPerfect TechOps product, based on the Compass master guide.",
       "tags": [
-        "skill"
+        "voice",
+        "tone",
+        "copy"
       ],
       "referenceFiles": [
         "references/COMPASS_PRODUCT_VOICE_WORKBOOK.md",
+        "references/COMPASS_VOICE_AND_TONE.md",
         "references/GUIDE_TEMPLATE.md",
         "references/VOICE_RULES.md"
       ]
@@ -100,9 +113,10 @@
       "name": "Discovery Tickets",
       "version": "1.0.0",
       "path": "skills/process/discovery-tickets",
-      "description": "",
+      "description": "Guides researchers and designers through creating discovery tickets for Azure DevOps — Feature tickets and PBIs (Research, Design, Validation). Use when someone needs to write a Feature ticket, create a Research PBI, write a Design PBI, create a Validation PBI, or isn't sure what level of ticket they need. Trigger with phrases like \"help me write a PBI\", \"I need to create a ticket for this feature\", \"how do I structure this discovery ticket\", \"create a research PBI\", \"write a design ticket\", or \"I need to document this feature\". Also trigger when someone shares a vague task description and needs to turn it into a properly structured ticket.",
+      "summary": "Guides researchers and designers through creating discovery tickets for Azure DevOps — Feature tickets and PBIs (Research, Design, Validation).",
       "tags": [
-        "skill"
+        "ticket"
       ],
       "referenceFiles": [
         "references/SCENARIOS.md",
