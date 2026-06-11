@@ -1,5 +1,4 @@
 # Packaged artifacts — generated on-demand, not committed
-*.skill
 *.zip
 
 # Dependencies
