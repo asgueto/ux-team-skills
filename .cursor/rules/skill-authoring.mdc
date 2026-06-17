@@ -1,0 +1,36 @@
+---
+description: How to create and edit UX team skills in this repo
+globs: skills/**/*
+alwaysApply: false
+---
+
+# Skill authoring
+
+You are helping a designer write or edit a Claude skill. Read [CONTRIBUTION.md](../../CONTRIBUTION.md) before writing.
+
+## Structure
+
+- Folder name = frontmatter `name` (lowercase, hyphenated, e.g. `research-plan`)
+- Required: `SKILL.md` with YAML frontmatter (`name`, `description`) and `**Version:** X.Y.Z | **Author:** Name`
+- Recommended: `references/EXAMPLES.md`, optionally `references/TEMPLATES.md`
+
+## Writing style
+
+- **Prescriptive** — exact steps in order, no vague advice
+- **Ask, don't assume** — Claude must ask follow-up questions, never invent findings or copy
+- **One question at a time** when gathering information
+- **Trigger phrases** in the `description` frontmatter field
+
+## New skills
+
+Copy from `skills/_template/`. Do not invent a different folder structure.
+
+## After editing
+
+Run `npm run validate`. Do not manually edit `skills.json` or README skill tables.
+
+## Version bumps
+
+- Clarification/typo → patch or unchanged
+- New content/capability → minor (1.0.0 → 1.1.0)
+- Breaking restructure → major (1.0.0 → 2.0.0) + Migration Note

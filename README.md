@@ -19,6 +19,7 @@ Skills do not replace team judgment. They support it.
 ```
 ux-team-skills/
 ├── skills/
+│   ├── _template/                ← copy this to start a new skill
 │   ├── research/
 │   │   ├── research-plan/
 │   │   │   ├── SKILL.md
@@ -53,11 +54,15 @@ ux-team-skills/
 │               └── TEMPLATES.md
 ├── scripts/
 │   └── generate-manifest.js    ← auto-generates skills.json
+├── .cursor/rules/              ← Cursor AI guidance for skill editing
 ├── .husky/
 │   └── pre-commit              ← runs manifest generator on commit
 ├── package.json
 ├── skills.json                 ← skill metadata manifest (auto-generated)
-├── CONTRIBUTION.md             ← guide for contributing skills
+├── GETTING_STARTED.md          ← start here (beginner + advanced paths)
+├── AGENTS.md                   ← AI instructions (Cursor + Claude Code)
+├── CLAUDE.md                   ← Claude Code entry point
+├── CONTRIBUTION.md             ← skill writing guidelines
 ├── .gitignore
 └── README.md                   ← this file
 ```
@@ -68,73 +73,73 @@ ux-team-skills/
 
 ### Research
 
+<!-- SKILLS:research:START -->
 | Skill | Version | What it does |
 |---|---|---|
-| `research/research-plan` | 1.1.0 | Guides writing or reviewing a research plan — goals, method, participants, checklist. Based on TechOps conventions from real Condens studies. |
-| `research/research-readout` | 1.0.0 | Guides writing a research readout — executive summary, findings with impact, conclusions, proposals. Focused on synthesis for PM and stakeholder audiences. |
+| `research/research-plan` | 1.1.0 | Use this skill whenever anyone on the team touches a research study — from the first conversation about scoping to reviewing a draft plan to choosing a method. |
+| `research/research-readout` | 1.0.0 | Use this skill whenever anyone on the team is preparing, writing, or reviewing a research readout, report, or findings presentation. |
+<!-- SKILLS:research:END -->
 
 ### Design
 
+<!-- SKILLS:design:START -->
 | Skill | Version | What it does |
 |---|---|---|
-| `design/prompt-builder` | 2.0.0 | Step-by-step guide for building high-quality AI prompts for design artifacts. Walks through Prompt Anatomy (Object, Style, Context, Constraints) and FEEL framework (Feeling, Experience, Emotion, Language). |
-| `design/spec-ideation` | 1.0.0 | Structured framework for ideation with AI — expansion, contraction, and documentation phases. Use for developing ideas, making decisions, or writing specs across any domain. |
+| `design/prompt-builder` | 2.0.0 | Step-by-step skill that guides designers through building high-quality AI prompts for design artifacts. |
+| `design/spec-ideation` | 1.0.0 | Structured framework for working with AI to generate thoughtful solutions through expansion, contraction, and documentation phases. |
+<!-- SKILLS:design:END -->
 
 ### Content
 
+<!-- SKILLS:content:START -->
 | Skill | Version | What it does |
 |---|---|---|
-| `content/globallink-voice` | 1.2.0 | Defines GlobalLink voice personality, tone ranges, copy patterns, and translatability rules for in-product content. Supports product overlays when combined with `product-voice-guide`. |
-| `content/product-voice-guide` | 1.0.0 | Walks product teams through creating a product-specific voice & tone guide — tone registers, calibrated positions, terminology, microcopy. Extends Compass master guide. |
+| `content/globallink-voice` | 1.2.0 | Defines GlobalLink's voice personality, valid tone ranges, copy patterns, and translatability rules for all in-product content. |
+| `content/product-voice-guide` | 1.0.0 | Creates a product-specific voice & tone guide for any GlobalLink or TransPerfect TechOps product, based on the Compass master guide. |
+<!-- SKILLS:content:END -->
 
 ### Process
 
+<!-- SKILLS:process:START -->
 | Skill | Version | What it does |
 |---|---|---|
-| `process/discovery-tickets` | 1.0.0 | Guides researchers and designers through creating discovery tickets for Azure DevOps — Feature tickets and Research/Design/Validation PBIs. Produces ready-to-paste content. |
+| `process/discovery-tickets` | 1.0.0 | Guides researchers and designers through creating discovery tickets for Azure DevOps — Feature tickets and PBIs (Research, Design, Validation). |
+<!-- SKILLS:process:END -->
 
 ---
 
 ## Quick Start
 
-**First time using this repo?**
+**New to skills?** → [GETTING_STARTED.md](./GETTING_STARTED.md) — explains what a skill is and offers two paths.
+
+| Path | Guide |
+|---|---|
+| **Beginner** — describe changes, AI handles files and git | [GETTING_STARTED.md — Path 1](./GETTING_STARTED.md#path-1-beginner-ai-assisted) |
+| **Advanced** — edit skills directly in a cloned repo | [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly) |
+| **Writing quality** — structure, examples, review checklist | [CONTRIBUTION.md](./CONTRIBUTION.md) |
+
+**Using a skill in Claude?** Download a skill folder from `skills/` and upload it in Claude **Customize → Skills**.
+
+### One-time setup
 
 ```bash
-# Clone the repo
 git clone https://github.com/asgueto/ux-team-skills.git
 cd ux-team-skills
-
-# One-time setup (installs dependencies + sets up pre-commit hook)
 npm install
 ```
 
-Done. Now you can create or update skills.
-
-**To add a new skill:**
-
-```bash
-# Create a branch
-git checkout -b add/my-skill-name
-
-# Create your skill folder
-mkdir -p skills/[category]/[skill-id]/references
-
-# Add SKILL.md and reference files
-
-# Commit (the pre-commit hook auto-updates skills.json)
-git commit -m "Add my-skill-name skill"
-
-# Push and create a PR
-git push origin add/my-skill-name
-```
-
-See [CONTRIBUTION.md](./CONTRIBUTION.md) for detailed instructions.
+Then open the folder in Cursor or run Claude Code in that directory. Tell the AI: *"Run the one-time setup"* if `npm install` wasn't done yet.
 
 ---
 
 ## Setup for Contributors
 
-The `npm install` command installs dependencies and sets up a pre-commit hook that automatically updates `skills.json` whenever you commit changes to a skill. You don't need to do anything manually — it happens automatically.
+| Path | What you do | What automation handles |
+|---|---|---|
+| **Beginner** | Describe changes in Cursor/Claude Code | AI edits files; validation + index on PR |
+| **Advanced** | Edit `SKILL.md` and `references/` directly | `skills.json`, README tables, validation on commit/PR |
+
+See [GETTING_STARTED.md](./GETTING_STARTED.md).
 
 ---
 
@@ -142,7 +147,7 @@ The `npm install` command installs dependencies and sets up a pre-commit hook th
 
 1. Navigate to the skill folder you want (e.g., `skills/research/research-plan/`)
 2. Download the folder (or clone the whole repo)
-3. In Claude, go to **Settings → Skills**
+3. In Claude, go to **Customize → Skills**
 4. Upload the skill folder — Claude reads `SKILL.md` and any `references/` files automatically
 5. The skill is now active in your conversations
 
@@ -152,28 +157,19 @@ The `npm install` command installs dependencies and sets up a pre-commit hook th
 
 ## How to update a skill
 
-1. Edit the `SKILL.md` (or reference files) in this repo directly via the GitHub browser editor
-2. Commit the changes
-3. Reinstall the updated skill in Claude by re-uploading the folder
+- **Beginner:** tell the AI what to change → [GETTING_STARTED.md](./GETTING_STARTED.md)
+- **Advanced:** edit the skill folder, run `npm run validate`, open a PR → [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly)
+
+Re-upload the skill folder in Claude after merge.
 
 ---
 
 ## How to contribute a new skill
 
-See [CONTRIBUTION.md](./CONTRIBUTION.md) for comprehensive guidelines on:
-- When to create a new skill
-- Skill structure and SKILL.md format
-- Creating reference files (EXAMPLES.md, TEMPLATES.md)
-- Versioning strategy (semantic versioning)
-- Review checklist before submitting
+- **Beginner:** ask the AI in Cursor/Claude Code — [GETTING_STARTED.md](./GETTING_STARTED.md)
+- **Advanced:** copy `skills/_template/`, edit, validate, PR — [GETTING_STARTED.md — Path 2](./GETTING_STARTED.md#path-2-advanced-edit-directly)
 
-Quick start:
-1. Create a new folder in the relevant category (`research/`, `design/`, `content/`, `process/`)
-2. Add `SKILL.md` with frontmatter (`name`, `description`) and behavioral instructions
-3. Add `references/EXAMPLES.md` and/or `references/TEMPLATES.md` if needed
-4. Update `skills.json` with the new skill metadata
-5. Update this README table
-6. Commit: `git commit -m "Add [skill-name] skill"`
+Writing guidelines: [CONTRIBUTION.md](./CONTRIBUTION.md)
 
 ---
 
@@ -235,4 +231,4 @@ As the team's conventions change, skills should be updated. This repo is a livin
 TechOps Experience Design team  
 Questions or suggestions → speak to the Design Lead
 
-See [CONTRIBUTION.md](./CONTRIBUTION.md) for contributor guidelines.
+See [GETTING_STARTED.md](./GETTING_STARTED.md) and [CONTRIBUTION.md](./CONTRIBUTION.md) for contributor guidelines.
