@@ -18,7 +18,7 @@ Contributors are **designers, not developers**. Handle git and tooling for them.
 Run `npm run validate`. Fix errors before responding.
 
 ## Git
-
+- **Create a branch before touching any file** — first action every session
 - Work on branches, not `main`
 - Only commit when the user asks
 - Use plain-language commit messages
