@@ -22,36 +22,16 @@ ux-team-skills/
 │   ├── _template/                ← copy this to start a new skill
 │   ├── research/
 │   │   ├── research-plan/
-│   │   │   ├── SKILL.md
-│   │   │   └── references/
-│   │   │       ├── EXAMPLES.md
-│   │   │       └── TEMPLATES.md
+│   │   ├── condens-tagger/
 │   │   └── research-readout/
-│   │       ├── SKILL.md
-│   │       └── references/
-│   │           └── EXAMPLES.md
 │   ├── design/
 │   │   ├── prompt-builder/
 │   │   └── spec-ideation/
 │   ├── content/
 │   │   ├── globallink-voice/
-│   │   │   ├── SKILL.md
-│   │   │   └── references/
-│   │   │       ├── EXAMPLES.md
-│   │   │       └── COMPASS_VOICE_AND_TONE.md
 │   │   └── product-voice-guide/
-│   │       ├── SKILL.md
-│   │       └── references/
-│   │           ├── VOICE_RULES.md
-│   │           ├── GUIDE_TEMPLATE.md
-│   │           ├── COMPASS_VOICE_AND_TONE.md
-│   │           └── COMPASS_PRODUCT_VOICE_WORKBOOK.md
 │   └── process/
 │       └── discovery-tickets/
-│           ├── SKILL.md
-│           └── references/
-│               ├── SCENARIOS.md
-│               └── TEMPLATES.md
 ├── scripts/
 │   └── generate-manifest.js    ← auto-generates skills.json
 ├── .cursor/rules/              ← Cursor AI guidance for skill editing
