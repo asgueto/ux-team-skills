@@ -1,8 +1,24 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-06-09",
+  "lastUpdated": "2026-06-17",
   "description": "Manifest of all skills in the UX Team Skills repository. Each skill is located in its category folder and includes a SKILL.md file with behavioral instructions.",
   "skills": [
+    {
+      "id": "condens-tagger",
+      "category": "research",
+      "name": "Condens Tagger",
+      "version": "1.0.0",
+      "path": "skills/research/condens-tagger",
+      "description": "Use this skill whenever the user asks Claude to tag, annotate, or analyse a research session inside Condens. Triggers include: \"tag this session\", \"annotate the transcript in Condens\", \"read the session and add tags\", \"go through this interview in Condens\", or any instruction combining Condens with tagging, highlighting, or research analysis. Also trigger when the user says something like \"I'm in Condens, can you go through the session?\" or \"analyse this transcript and add relevant tags\". The skill will ask for the session URL, confirm participants, and offer to replace speaker labels before tagging begins.",
+      "summary": "Use this skill whenever the user asks Claude to tag, annotate, or analyse a research session inside Condens.",
+      "tags": [
+        "research"
+      ],
+      "referenceFiles": [
+        "references/condens-ui.md",
+        "references/taxonomy.md"
+      ]
+    },
     {
       "id": "research-plan",
       "category": "research",

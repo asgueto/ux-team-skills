@@ -76,6 +76,7 @@ ux-team-skills/
 <!-- SKILLS:research:START -->
 | Skill | Version | What it does |
 |---|---|---|
+| `research/condens-tagger` | 1.0.0 | Use this skill whenever the user asks Claude to tag, annotate, or analyse a research session inside Condens. |
 | `research/research-plan` | 1.1.0 | Use this skill whenever anyone on the team touches a research study — from the first conversation about scoping to reviewing a draft plan to choosing a method. |
 | `research/research-readout` | 1.0.0 | Use this skill whenever anyone on the team is preparing, writing, or reviewing a research readout, report, or findings presentation. |
 <!-- SKILLS:research:END -->
