@@ -10,6 +10,7 @@ description: >
   to replace speaker labels before tagging begins.
 compatibility: "requires Claude in Chrome"
 ---
+Version: 1.0.0 | Author: TechOps Experience Design Last Updated: 2026-06-17
 
 # Condens Session Tagger
 
