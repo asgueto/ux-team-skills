@@ -57,6 +57,7 @@ Fix all errors before telling the user the work is complete. If `npm install` ha
 
 ## Git workflow
 
+- **Create a branch before touching any file.** The very first action in any work session must be `git checkout -b [branch-name]`. Do not read, edit, or create files until you are on a branch.
 - **Never commit directly to `main`** unless the user explicitly asks
 - **Always use a branch:** `add/skill-name`, `update/skill-name`, `enhance/skill-name`
 - **Commit messages:** plain language, e.g. `Add research-synthesis skill` or `Update research-plan: add stakeholder alignment step`
