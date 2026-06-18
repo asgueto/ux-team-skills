@@ -75,6 +75,8 @@ flowchart LR
 **Update a skill:**
 > Update the **research-plan** skill. Add a section about stakeholder alignment. Bump the minor version. Author: [Your Name].
 
+Not sure which number to bump? See [Version numbers](#version-numbers).
+
 **Create a skill:**
 > Help me create a new skill called **research-synthesis** in **research**. It should guide synthesizing interview notes into themes. Author: [Your Name].
 
@@ -248,11 +250,7 @@ skills/research/research-plan/
 
 #### 3. Bump the version (if behavior changed)
 
-| Change | Bump |
-|---|---|
-| Typo, clarification | Optional patch: `1.1.0 → 1.1.1` |
-| New step, template, examples | Minor: `1.1.0 → 1.2.0` |
-| Removed step, restructured process | Major: `1.1.0 → 2.0.0` + Migration Note at top |
+See [Version numbers](#version-numbers) for when to bump patch, minor, or major.
 
 #### 4. Validate, commit, PR
 
@@ -319,16 +317,34 @@ The AI instructions in [AGENTS.md](./AGENTS.md) won't interfere unless you ask f
 
 ## Version numbers
 
-| Change | Version bump |
-|---|---|
-| Typo or small clarification | Same, or patch (`1.0.0 → 1.0.1`) |
-| New section, template, or examples | Minor (`1.0.0 → 1.1.0`) |
-| Major restructure | Major (`1.0.0 → 2.0.0`) |
+Every skill has a version in `SKILL.md` like `**Version:** 1.2.0 | **Author:** Your Name`. We use **semantic versioning** — three numbers written as `MAJOR.MINOR.PATCH` (often shown as `X.Y.Z`).
 
-Update the `**Version:**` line in `SKILL.md`. The index updates automatically on commit/PR.
+| Part | Name | What it means |
+|---|---|---|
+| First number (`X`) | **Major** | Big change — removed steps, reordered the whole process, or Claude will behave differently in ways that break how someone used the skill before |
+| Middle number (`Y`) | **Minor** | New content — added a step, template, examples, or a new capability |
+| Last number (`Z`) | **Patch** | Small fix — typo, clarification, wording tweak; nothing new for Claude to do |
 
-- **Beginners:** tell the AI which bump you want
+### When to bump which number
+
+| If you… | Bump | Example |
+|---|---|---|
+| Fix a typo or clarify wording (no new steps) | Patch (optional) | `1.1.0 → 1.1.1` |
+| Add a section, template, or examples | Minor | `1.1.0 → 1.2.0` |
+| Remove a step or restructure the process | Major | `1.1.0 → 2.0.0` |
+
+**New skills** start at `1.0.0`.
+
+**Major changes:** add a short **Migration Note** at the top of `SKILL.md` so teammates know what changed. Example:
+
+> Migration Note (2.0.0): Step 3 was removed; use the new checklist in `references/TEMPLATES.md` instead.
+
+Update the `**Version:**` line in `SKILL.md`. Do not edit `skills.json` or README tables — those update automatically on commit/PR.
+
+- **Beginners:** tell the AI which bump you want (e.g. *"Bump the minor version"* or *"This is a major restructure — bump to 2.0.0 and add a Migration Note"*)
 - **Advanced:** edit the version line yourself (see [Path 2](#path-2-advanced-edit-directly))
+
+More detail: [CONTRIBUTION.md — Versioning](./CONTRIBUTION.md#versioning)
 
 ---
 
